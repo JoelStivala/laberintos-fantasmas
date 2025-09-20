@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1758329622 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"common.h"
+	"config.h"
+	"jugador.h"
+
+1758328128 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\config.c
+	"config.h"
+
+1758328123 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\config.h
+	<stdio.h>
+	"common.h"
+
+1758328570 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\common.c
+	"common.h"
+
+1758328336 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1758329394 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\jugador.c
+	"jugador.h"
+
+1758329513 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\jugador.h
+
