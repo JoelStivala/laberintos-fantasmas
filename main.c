@@ -4,14 +4,13 @@
 #include "common.h"
 #include "config.h"
 #include "jugador.h"
+#include "laberinto.h"
 
-void inicializarMatriz(char** matriz, tJugador* jugador, int filas, int columnas);
-void mostrarMatriz(char** matriz, int filas, int columnas);
 
 int main(int argc, char* argv[])
 {
     tConfig config;
-    char** laberinto;
+    tLaberinto laberinto;
     tJugador jugador;
 
     jugador.posX = 3;
@@ -26,37 +25,12 @@ int main(int argc, char* argv[])
     printf("%d\n", config.maxNumeroPremios);
     printf("%d\n", config.maxVidasExtra);
 
-    laberinto = (char**)crearMatriz(sizeof(char), config.filas, config.columnas);
+    laberinto.mat = (char**)crearMatriz(sizeof(char), config.filas, config.columnas);
 
-    inicializarMatriz(laberinto, &jugador, config.filas, config.columnas);
-    mostrarMatriz(laberinto, config.filas, config.columnas);
+    inicializarLaberinto(&laberinto, config.filas, config.columnas);
+    dibujarLaberinto(&laberinto);
 
-    destruirMatriz((void**)laberinto, config.filas);
+    destruirMatriz((void**)laberinto.mat, laberinto.cf);
     return 0;
 }
 
-void inicializarMatriz(char** matriz, tJugador* jugador, int filas, int columnas)
-{
-    for(int i = 0 ; i < filas ; i++)
-    {
-        for(int j = 0 ; j < columnas ; j++)
-        {
-            matriz[i][j] = '.';
-        }
-    }
-    matriz[jugador->posY][jugador->posX] = 'J';
-}
-
-void mostrarMatriz(char** matriz, int filas, int columnas)
-{
-    for(int i = 0 ; i < filas ; i++)
-    {
-        for(int j = 0 ; j < columnas ; j++)
-        {
-            printf("%c", matriz[i][j]);
-        }
-        puts("");
-    }
-
-
-}

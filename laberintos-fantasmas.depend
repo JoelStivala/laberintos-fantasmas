@@ -25,3 +25,36 @@
 
 1758329513 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\jugador.h
 
+1758728086 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\common.c
+	"common.h"
+
+1758728086 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1758728086 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\config.c
+	"config.h"
+
+1758728086 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\config.h
+	<stdio.h>
+	"common.h"
+
+1758728086 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\jugador.c
+	"jugador.h"
+
+1758728086 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\jugador.h
+
+1758735943 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\main.c
+	<stdio.h>
+	<stdlib.h>
+	"common.h"
+	"config.h"
+	"jugador.h"
+	"laberinto.h"
+
+1758735897 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\laberinto.c
+	"laberinto.h"
+
+1758735906 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\laberinto.h
+	<stdio.h>
+
