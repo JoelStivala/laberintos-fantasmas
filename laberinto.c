@@ -17,26 +17,15 @@ int cargarLaberinto(FILE* pf, void* elem)
     return TODO_OK;
 }
 
-
-int inicializarLaberinto(tLaberinto* laberinto, tConfig* config, const char* nombreLaberinto)
+int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
 {
-    int i;
-    int j;
-
     laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
 
-    if(!laberinto->mat)
-    {
-        return ERR_MEMORIA;
-    }
-
-
-    //TODO - Funcion para crear el archivo laberinto.txt
+    //TODO - Funcion para crear el archivo laberinto.txt, actualmente leemos el archivo directamente
 
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
-
-    cargarRegistroMemoria(nombreLaberinto, laberinto, cargarLaberinto);
+    cargarRegistroMemoria("laberinto.txt", laberinto, cargarLaberinto);
 
     return TODO_OK;
 }

@@ -19,9 +19,9 @@ int main(int argc, char* argv[])
 
     option = mostrarMenu();
 
-    cargarRegistroMemoria("config.txt", &config, cargarConfiguracion);
 
-    inicializarLaberinto(&laberinto, &config, "laberinto.txt");
+    inicializarConfiguracion(&config);
+    inicializarLaberinto(&laberinto, &config);
     inicializarJugador(&jugador, &config);
 
     while(jugador.vidas > 0)

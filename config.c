@@ -27,3 +27,8 @@ int cargarConfiguracion(FILE* pf, void* elem)
 
     return TODO_OK;
 }
+
+void inicializarConfiguracion(tConfig* config)
+{
+    cargarRegistroMemoria("config.txt", config, cargarConfiguracion);
+}

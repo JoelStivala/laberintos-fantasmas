@@ -14,5 +14,5 @@ typedef struct
 } tConfig;
 
 int cargarConfiguracion(FILE* pf, void* elem);
-
+void inicializarConfiguracion(tConfig* config);
 #endif // CONFIG_H_INCLUDED
