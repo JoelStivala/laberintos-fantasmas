@@ -1,7 +1,28 @@
 #include "laberinto.h"
 
-int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
+int cargarLaberinto(FILE* pf, void* elem)
 {
+    char linea[255];
+    tLaberinto* laberinto = elem;
+    int i = 0;
+
+    while(fgets(linea, 255, pf) && i < laberinto->cf)
+    {
+        sscanf(linea, "%s", laberinto->mat[i]);
+        i++;
+    }
+
+    fclose(pf);
+
+    return TODO_OK;
+}
+
+
+int inicializarLaberinto(tLaberinto* laberinto, tConfig* config, const char* nombreLaberinto)
+{
+    int i;
+    int j;
+
     laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
 
     if(!laberinto->mat)
@@ -9,19 +30,13 @@ int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
         return ERR_MEMORIA;
     }
 
-    int i;
-    int j;
+
+    //TODO - Funcion para crear el archivo laberinto.txt
 
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
 
-    for(i = 0 ; i < laberinto->cf ; i++)
-    {
-        for(j = 0 ; j < laberinto->cc ; j++)
-        {
-            laberinto->mat[i][j] = '.';
-        }
-    }
+    cargarRegistroMemoria(nombreLaberinto, laberinto, cargarLaberinto);
 
     return TODO_OK;
 }

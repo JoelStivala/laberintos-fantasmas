@@ -12,7 +12,7 @@ typedef struct
     int cc;
 } tLaberinto;
 
-int inicializarLaberinto(tLaberinto* laberinto, tConfig* config);
+int inicializarLaberinto(tLaberinto* laberinto, tConfig* config, const char* nombreLaberinto);
 void dibujarLaberinto(tLaberinto* laberinto);
 
 #endif // LABERINTO_H_INCLUDED

@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
     cargarRegistroMemoria("config.txt", &config, cargarConfiguracion);
 
-    inicializarLaberinto(&laberinto, &config);
+    inicializarLaberinto(&laberinto, &config, "laberinto.txt");
     inicializarJugador(&jugador, &config);
 
     while(jugador.vidas > 0)
