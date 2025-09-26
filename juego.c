@@ -39,15 +39,16 @@ void procesarCelda(tJugador* jugador, char* celda)
     if (*celda == 'F')
     {
         jugador->vidas--;
+        *celda = '.';
     }
     else if (*celda == 'P')
     {
         jugador->puntos++;
+        *celda = '.';
     }
     else if (*celda == 'V')
     {
         jugador->vidas++;
+        *celda = '.';
     }
-
-    //*celda = '.';
 }

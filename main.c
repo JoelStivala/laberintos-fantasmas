@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     inicializarLaberinto(&laberinto, &config);
     inicializarJugador(&jugador, &config);
 
-    while(jugador.vidas > 0)
+    while(jugador.vidas > 0 && laberinto.mat[jugador.posY][jugador.posX] != 'S')
     {
         draw(&laberinto, &jugador);
         printf("VIDAS: %d\nPUNTOS: %d\n", jugador.vidas, jugador.puntos);

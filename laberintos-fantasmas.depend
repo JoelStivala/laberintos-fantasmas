@@ -45,7 +45,7 @@
 1758926796 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\jugador.h
 	"config.h"
 
-1758927848 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\main.c
+1758928322 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -63,7 +63,7 @@
 	"config.h"
 	"common.h"
 
-1758927910 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.c
+1758928987 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.c
 	"juego.h"
 
 1758927868 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.h
