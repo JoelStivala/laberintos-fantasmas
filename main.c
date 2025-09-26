@@ -24,13 +24,19 @@ int main(int argc, char* argv[])
     while(jugador.vidas > 0)
     {
         draw(&laberinto, &jugador);
+        printf("VIDAS: %d\nPUNTOS: %d\n", jugador.vidas, jugador.puntos);
         input = getch();
 
         calcularNuevaPosicion(&jugador, input, &nuevoX, &nuevoY);
 
         if(!hayBloque(&laberinto, nuevoX, nuevoY))
+        {
             mover(&jugador, nuevoX, nuevoY);
+            procesarCelda(&jugador, &laberinto.mat[jugador.posY][jugador.posX]);
+        }
     }
+
+    printf("GAME OVER\n");
 
     destruirMatriz((void**)laberinto.mat, laberinto.cf);
     return 0;

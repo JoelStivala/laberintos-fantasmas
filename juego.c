@@ -33,3 +33,21 @@ void draw(tLaberinto* laberinto, tJugador* jugador)
         puts("");
     }
 }
+
+void procesarCelda(tJugador* jugador, char* celda)
+{
+    if (*celda == 'F')
+    {
+        jugador->vidas--;
+    }
+    else if (*celda == 'P')
+    {
+        jugador->puntos++;
+    }
+    else if (*celda == 'V')
+    {
+        jugador->vidas++;
+    }
+
+    //*celda = '.';
+}

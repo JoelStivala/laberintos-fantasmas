@@ -15,4 +15,5 @@ typedef struct
 int inicializarLaberinto(tLaberinto* laberinto, tConfig* config);
 void dibujarLaberinto(tLaberinto* laberinto);
 int hayBloque(tLaberinto* laberinto, int posX, int posY);
+
 #endif // LABERINTO_H_INCLUDED

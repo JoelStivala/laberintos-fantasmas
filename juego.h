@@ -9,5 +9,6 @@
 
 int mostrarMenu();
 void draw(tLaberinto* laberinto, tJugador* jugador);
+void procesarCelda(tJugador* jugador, char* celda);
 
 #endif // JUEGO_H_INCLUDED
