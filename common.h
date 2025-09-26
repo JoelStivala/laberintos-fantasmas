@@ -6,6 +6,7 @@
 
 #define TODO_OK 0
 #define ERR_ARCHIVO 1
+#define ERR_MEMORIA 2
 
 typedef int (*TxtAMem)(FILE* pf, void* elem);
 
