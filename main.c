@@ -15,10 +15,7 @@ int main(int argc, char* argv[])
     tJugador jugador;
 
     char input;
-    int option;
-
-    option = mostrarMenu();
-
+    int nuevoX, nuevoY;
 
     inicializarConfiguracion(&config);
     inicializarLaberinto(&laberinto, &config);
@@ -28,7 +25,11 @@ int main(int argc, char* argv[])
     {
         draw(&laberinto, &jugador);
         input = getch();
-        movimiento(&jugador, input);
+
+        calcularNuevaPosicion(&jugador, input, &nuevoX, &nuevoY);
+
+        if(!hayBloque(&laberinto, nuevoX, nuevoY))
+            mover(&jugador, nuevoX, nuevoY);
     }
 
     destruirMatriz((void**)laberinto.mat, laberinto.cf);

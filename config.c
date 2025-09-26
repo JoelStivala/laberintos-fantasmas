@@ -23,8 +23,6 @@ int cargarConfiguracion(FILE* pf, void* elem)
     fgets(linea, 255, pf);
     sscanf(linea, "maximo_vidas_extra: %d\n", &config->maxVidasExtra);
 
-    fclose(pf);
-
     return TODO_OK;
 }
 

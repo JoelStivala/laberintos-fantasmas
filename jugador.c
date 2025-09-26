@@ -2,20 +2,29 @@
 
 void inicializarJugador(tJugador* jugador, tConfig* config)
 {
-    jugador->posX = 0;
-    jugador->posY = 0;
+    jugador->posX = 3;
+    jugador->posY = 1;
     jugador->puntos = 0;
     jugador->vidas = config->vidasInicio;
     jugador->j = 'J';
 }
 
-void movimiento(tJugador* jugador, char input)
+void calcularNuevaPosicion(tJugador* jugador, char input, int* nuevoX, int* nuevoY)
 {
+    *nuevoX = jugador->posX;
+    *nuevoY = jugador->posY;
+
     switch(input)
     {
-        case('a'): jugador->posX--; break;
-        case('d'): jugador->posX++; break;
-        case('w'): jugador->posY--; break;
-        case('s'): jugador->posY++; break;
+        case('a'): (*nuevoX)--; break;
+        case('d'): (*nuevoX)++; break;
+        case('w'): (*nuevoY)--; break;
+        case('s'): (*nuevoY)++; break;
     }
+}
+
+void mover(tJugador* jugador, int nuevoX, int nuevoY)
+{
+    jugador->posX = nuevoX;
+    jugador->posY = nuevoY;
 }

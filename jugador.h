@@ -13,6 +13,7 @@ typedef struct
 }tJugador;
 
 void inicializarJugador(tJugador* jugador, tConfig* config);
-void movimiento(tJugador* jugador, char input);
+void calcularNuevaPosicion(tJugador* jugador, char input, int* nuevoX, int* nuevoY);
+void mover(tJugador* jugador, int nuevoX, int nuevoY);
 
 #endif // JUGADOR_H_INCLUDED

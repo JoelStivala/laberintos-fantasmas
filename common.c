@@ -11,6 +11,7 @@ int cargarRegistroMemoria(const char* nomTxt, void* elem, TxtAMem txtAMem)
 
     txtAMem(pf, elem);
 
+    fclose(pf);
     return TODO_OK;
 }
 

@@ -12,8 +12,6 @@ int cargarLaberinto(FILE* pf, void* elem)
         i++;
     }
 
-    fclose(pf);
-
     return TODO_OK;
 }
 
@@ -28,4 +26,9 @@ int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
     cargarRegistroMemoria("laberinto.txt", laberinto, cargarLaberinto);
 
     return TODO_OK;
+}
+
+int hayBloque(tLaberinto* laberinto, int posX, int posY)
+{
+    return laberinto->mat[posY][posX] == '#';
 }
