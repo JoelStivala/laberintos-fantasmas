@@ -14,10 +14,10 @@ int mostrarMenu()
     return opcion;
 }
 
-void draw(tLaberinto* laberinto, tJugador* jugador)
+void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
 {
-    int i;
-    int j;
+    int i, j, k;
+    int hayFantasma;
 
     system("cls");
 
@@ -28,7 +28,21 @@ void draw(tLaberinto* laberinto, tJugador* jugador)
             if(i == jugador->posY && j == jugador->posX)
                 printf("%c", jugador->j);
             else
-                printf("%c", laberinto->mat[i][j]);
+            {
+                hayFantasma = 0;
+                for(k = 0 ; k < fantasmas->cntFantasmas ; k++)
+                {
+                    if(fantasmas->f[k].posY == i && fantasmas->f[k].posX == j)
+                    {
+                        printf("%c", fantasmas->i);
+                        hayFantasma = 1;
+                        break; //reemplazar por un while luego
+                    }
+                }
+                if(!hayFantasma)
+                    printf("%c", laberinto->mat[i][j]);
+            }
+
         }
         puts("");
     }

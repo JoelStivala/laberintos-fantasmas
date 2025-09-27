@@ -45,7 +45,7 @@
 1758926796 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\jugador.h
 	"config.h"
 
-1758928322 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\main.c
+1758934570 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -53,6 +53,7 @@
 	"config.h"
 	"jugador.h"
 	"laberinto.h"
+	"fantasma.h"
 	"juego.h"
 
 1758927629 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\laberinto.c
@@ -63,12 +64,22 @@
 	"config.h"
 	"common.h"
 
-1758928987 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.c
+1758934871 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.c
 	"juego.h"
 
-1758927868 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.h
+1758934519 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\juego.h
 	<stdlib.h>
 	<stdio.h>
 	"jugador.h"
 	"laberinto.h"
+	"fantasma.h"
+
+1758934497 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\fantasma.c
+	"fantasma.h"
+
+1758934412 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\fantasma.h
+	"config.h"
+	"common.h"
+	"laberinto.h"
+	"jugador.h"
 
