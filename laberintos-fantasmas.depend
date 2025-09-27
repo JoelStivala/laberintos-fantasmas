@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1758995633 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
+1759002468 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -9,6 +9,7 @@
 	"./Headers/laberinto.h"
 	"./Headers/fantasma.h"
 	"./Headers/juego.h"
+	"./Estructuras/Cola.h"
 
 1758983512 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\config.c
 	"config.h"
@@ -141,7 +142,7 @@
 	"laberinto.h"
 	"jugador.h"
 
-1758995632 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\juego.h
+1759002605 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\juego.h
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -149,6 +150,7 @@
 	"laberinto.h"
 	"fantasma.h"
 	"common.h"
+	"../Estructuras/Cola.h"
 
 1758994904 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\fantasma.c
 	"../Headers/fantasma.h"
@@ -159,7 +161,7 @@
 1758995545 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\config.c
 	"../Headers/config.h"
 
-1758999090 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
+1759003054 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
 	"../Headers/juego.h"
 
 1758998741 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
@@ -168,7 +170,21 @@
 1758999213 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\laberinto.c
 	"../Headers/laberinto.h"
 
-1758995779 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.c
+1759001713 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.c
+	"Lista.h"
 
 1758995836 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\matriz.c
+
+1759001632 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.h
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1759003044 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.c
+	"Cola.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1759002440 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.h
 

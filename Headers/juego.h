@@ -9,6 +9,7 @@
 #include "laberinto.h"
 #include "fantasma.h"
 #include "common.h"
+#include "../Estructuras/Cola.h"
 
 int mostrarMenu();
 void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);

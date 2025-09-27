@@ -31,14 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Estructuras/Lista.c">
+		<Unit filename="Estructuras/Cola.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Estructuras/Lista.h" />
+		<Unit filename="Estructuras/Cola.h" />
 		<Unit filename="Estructuras/Matriz.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Estructuras/Matriz.h" />
 		<Unit filename="Estructuras/Vector.c">
 			<Option compilerVar="CC" />
 		</Unit>

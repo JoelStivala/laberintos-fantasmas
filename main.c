@@ -9,6 +9,7 @@
 #include "./Headers/fantasma.h"
 #include "./Headers/juego.h"
 
+#include "./Estructuras/Cola.h"
 
 int main(int argc, char* argv[])
 {
