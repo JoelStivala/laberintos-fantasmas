@@ -1,4 +1,4 @@
-#include "laberinto.h"
+#include "../Headers/laberinto.h"
 
 int cargarLaberinto(FILE* pf, void* elem)
 {
@@ -23,7 +23,7 @@ int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
 
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
-    cargarRegistroMemoria("laberinto.txt", laberinto, cargarLaberinto);
+    cargarRegistroMemoria("./Files/laberinto.txt", laberinto, cargarLaberinto);
 
     return TODO_OK;
 }

@@ -16,4 +16,6 @@ void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda);
 void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);
 void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);
 
+void pauseEnter();
+
 #endif // JUEGO_H_INCLUDED

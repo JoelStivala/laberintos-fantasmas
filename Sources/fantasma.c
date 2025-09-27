@@ -1,4 +1,4 @@
-#include "fantasma.h"
+#include "../Headers/fantasma.h"
 
 int inicializarFantasmas(vFantasmas* fantasmas, tConfig* config)
 {

@@ -14,6 +14,5 @@ int cargarRegistroMemoria(const char* nomTxt, void* elem, TxtAMem txtAMem);
 void** crearMatriz(size_t tamElem, int filas, int columnas);
 void destruirMatriz(void** mat, int filas);
 
-void clearScreen();
-void pauseEnter();
+
 #endif // COMMON_H_INCLUDED

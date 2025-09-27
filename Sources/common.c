@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../Headers/common.h"
 
 int cargarRegistroMemoria(const char* nomTxt, void* elem, TxtAMem txtAMem)
 {

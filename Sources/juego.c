@@ -1,4 +1,4 @@
-#include "juego.h"
+#include "../Headers/juego.h"
 
 int mostrarMenu()
 {

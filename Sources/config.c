@@ -1,4 +1,4 @@
-#include "config.h"
+#include "../Headers/config.h"
 
 int cargarConfiguracion(FILE* pf, void* elem)
 {
@@ -28,5 +28,5 @@ int cargarConfiguracion(FILE* pf, void* elem)
 
 void inicializarConfiguracion(tConfig* config)
 {
-    cargarRegistroMemoria("config.txt", config, cargarConfiguracion);
+    cargarRegistroMemoria("./Files/config.txt", config, cargarConfiguracion);
 }

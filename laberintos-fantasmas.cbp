@@ -31,30 +31,34 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="common.c">
+		<Unit filename="Estructuras/Vector.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="common.h" />
-		<Unit filename="config.c">
+		<Unit filename="Estructuras/Vector.h" />
+		<Unit filename="Headers/common.h" />
+		<Unit filename="Headers/config.h" />
+		<Unit filename="Headers/fantasma.h" />
+		<Unit filename="Headers/juego.h" />
+		<Unit filename="Headers/jugador.h" />
+		<Unit filename="Headers/laberinto.h" />
+		<Unit filename="Sources/common.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="config.h" />
-		<Unit filename="fantasma.c">
+		<Unit filename="Sources/config.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="fantasma.h" />
-		<Unit filename="juego.c">
+		<Unit filename="Sources/fantasma.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="juego.h" />
-		<Unit filename="jugador.c">
+		<Unit filename="Sources/juego.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="jugador.h" />
-		<Unit filename="laberinto.c">
+		<Unit filename="Sources/jugador.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="laberinto.h" />
+		<Unit filename="Sources/laberinto.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

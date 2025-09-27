@@ -1,4 +1,4 @@
-#include "jugador.h"
+#include "../Headers/jugador.h"
 
 void inicializarJugador(tJugador* jugador, tConfig* config)
 {

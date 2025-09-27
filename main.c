@@ -2,20 +2,13 @@
 #include <stdlib.h>
 #include <conio.h>
 
-#include "common.h"
-#include "config.h"
-#include "jugador.h"
-#include "laberinto.h"
-#include "fantasma.h"
-#include "juego.h"
+#include "./Headers/common.h"
+#include "./Headers/config.h"
+#include "./Headers/jugador.h"
+#include "./Headers/laberinto.h"
+#include "./Headers/fantasma.h"
+#include "./Headers/juego.h"
 
-void auxiliar(vFantasmas* fantasmas)
-{
-    for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
-    {
-        printf("%d %d\n", fantasmas->f[i].posX, fantasmas->f[i].posY);
-    }
-}
 
 int main(int argc, char* argv[])
 {
@@ -34,15 +27,11 @@ int main(int argc, char* argv[])
         {
             inicializarJuego(&config, &laberinto, &jugador, &fantasmas);
             gameLoop(&laberinto, &jugador, &fantasmas);
-            clearScreen();
         }
-
-
 
         system("cls");
         opcion = mostrarMenu();
     }
-
 
     destruirMatriz((void**)laberinto.mat, laberinto.cf);
     destruirFantasmas(&fantasmas);
