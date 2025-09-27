@@ -19,8 +19,6 @@ void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
     int i, j, k;
     int hayFantasma;
 
-    system("cls");
-
     for(i = 0 ; i < laberinto->cf ; i++)
     {
         for(j = 0 ; j < laberinto->cc ; j++)
@@ -48,14 +46,20 @@ void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
     }
 }
 
-void procesarCelda(tJugador* jugador, char* celda)
+void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda)
 {
-    if (*celda == 'F')
+    int i;
+
+    for(i = 0 ; i < fantasmas->cntFantasmas ; i++)
     {
-        jugador->vidas--;
-        *celda = '.';
+        if(jugador->posX == fantasmas->f[i].posX && jugador->posY == fantasmas->f[i].posY)
+        {
+            jugador->vidas--;
+            eliminarFantasmasPosicion(fantasmas, i);
+        }
     }
-    else if (*celda == 'P')
+
+    if (*celda == 'P')
     {
         jugador->puntos++;
         *celda = '.';
@@ -65,4 +69,44 @@ void procesarCelda(tJugador* jugador, char* celda)
         jugador->vidas++;
         *celda = '.';
     }
+}
+
+void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
+{
+    inicializarConfiguracion(config);
+    inicializarLaberinto(laberinto, config);
+    inicializarJugador(jugador, config);
+    inicializarFantasmas(fantasmas, config);
+
+    cargarPosicionesFantasmas(fantasmas, laberinto);
+    eliminarFantasmasLaberinto(laberinto);
+}
+
+void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
+{
+    int nuevoX, nuevoY;
+    char input;
+
+    while(jugador->vidas > 0 && laberinto->mat[jugador->posY][jugador->posX] != 'S')
+    {
+        system("cls");
+        draw(laberinto, jugador, fantasmas);
+        printf("VIDAS: %d\nPUNTOS: %d\n", jugador->vidas, jugador->puntos);
+
+        input = getch();
+        calcularNuevaPosicion(jugador, input, &nuevoX, &nuevoY);
+
+        if(!hayBloque(laberinto, nuevoX, nuevoY))
+        {
+            mover(jugador, nuevoX, nuevoY);
+            procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
+        }
+
+        for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
+            moverFantasmas(&fantasmas->f[i], jugador, laberinto);
+    }
+
+    system("cls");
+    puts("Game Over");
+    pauseEnter();
 }

@@ -36,6 +36,7 @@ void cargarPosicionesFantasmas(vFantasmas* fantasmas, tLaberinto* laberinto)
 
 void destruirFantasmas(vFantasmas* fantasmas)
 {
+    if(!fantasmas) return;
     free(fantasmas->f);
 }
 
@@ -57,4 +58,21 @@ void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab)
         f->posY += dy;
     else if (!hayBloque(lab, f->posX + dx, f->posY))
         f->posX += dx;
+}
+
+void eliminarFantasmasPosicion(vFantasmas* fantasmas, int pos)
+{
+    tFantasma* i;
+    tFantasma* ult = fantasmas->f + fantasmas->cntFantasmas;
+
+    if (pos < 0 || pos >= fantasmas->cntFantasmas)
+        return;
+
+
+    for(i = fantasmas->f + pos ; i < ult - 1; i++)
+    {
+        *i = *(i + 1);
+    }
+
+    fantasmas->cntFantasmas--;
 }

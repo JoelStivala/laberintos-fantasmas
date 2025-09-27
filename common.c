@@ -42,6 +42,7 @@ void** crearMatriz(size_t tamElem, int filas, int columnas)
 
 void destruirMatriz(void** mat, int filas)
 {
+    if(!mat) return;
     void** ult = mat + filas - 1;
 
     for(void** i = mat; i <= ult; i++)
@@ -51,3 +52,16 @@ void destruirMatriz(void** mat, int filas)
 
     free(mat);
 }
+
+void clearScreen()
+{
+    printf("\033[2J\033[H");
+    fflush(stdout);
+}
+
+void pauseEnter() {
+    printf("Presiona Enter para continuar...");
+    fflush(stdin);
+    getchar();
+}
+

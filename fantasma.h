@@ -21,5 +21,6 @@ typedef struct
 int inicializarFantasmas(vFantasmas* fantasmas, tConfig* config);
 void cargarPosicionesFantasmas(vFantasmas* fantasmas, tLaberinto* laberinto);
 void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab);
+void eliminarFantasmasPosicion(vFantasmas* fantasmas, int pos);
 void destruirFantasmas(vFantasmas* fantasmas);
 #endif // FANTASMA_H_INCLUDED

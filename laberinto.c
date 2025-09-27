@@ -32,3 +32,20 @@ int hayBloque(tLaberinto* laberinto, int posX, int posY)
 {
     return laberinto->mat[posY][posX] == '#';
 }
+
+// Remplazar los fantasmas estaticos por '.'
+void eliminarFantasmasLaberinto(tLaberinto* laberinto)
+{
+    int i, j;
+
+    for(i = 1 ; i < laberinto->cf - 1 ; i++)
+    {
+        for(j = 1 ; j < laberinto->cc - 1 ; j++)
+        {
+            if(laberinto->mat[i][j] == 'F')
+            {
+                laberinto->mat[i][j] = '.';
+            }
+        }
+    }
+}

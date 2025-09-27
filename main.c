@@ -9,43 +9,38 @@
 #include "fantasma.h"
 #include "juego.h"
 
+void auxiliar(vFantasmas* fantasmas)
+{
+    for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
+    {
+        printf("%d %d\n", fantasmas->f[i].posX, fantasmas->f[i].posY);
+    }
+}
+
 int main(int argc, char* argv[])
 {
     tConfig config;
-    tLaberinto laberinto;
+    tLaberinto laberinto = {0};
     tJugador jugador;
-    vFantasmas fantasmas;
+    vFantasmas fantasmas = {0};
 
-    char input;
-    int nuevoX, nuevoY;
+    int opcion;
 
-    inicializarConfiguracion(&config);
-    inicializarLaberinto(&laberinto, &config);
-    inicializarJugador(&jugador, &config);
-    inicializarFantasmas(&fantasmas, &config);
+    opcion = mostrarMenu();
 
-    cargarPosicionesFantasmas(&fantasmas, &laberinto);
-
-    while(jugador.vidas > 0 && laberinto.mat[jugador.posY][jugador.posX] != 'S')
+    while(opcion != 3)
     {
-        draw(&laberinto, &jugador, &fantasmas);
-        printf("%d, %d\n", fantasmas.f[0].posX, fantasmas.f[0].posY);
-        printf("%d, %d\n", fantasmas.f[1].posX, fantasmas.f[1].posY);
-        printf("VIDAS: %d\nPUNTOS: %d\n", jugador.vidas, jugador.puntos);
-        input = getch();
-
-        calcularNuevaPosicion(&jugador, input, &nuevoX, &nuevoY);
-
-        if(!hayBloque(&laberinto, nuevoX, nuevoY))
+        if(opcion == 1)
         {
-            mover(&jugador, nuevoX, nuevoY);
-            procesarCelda(&jugador, &laberinto.mat[jugador.posY][jugador.posX]);
+            inicializarJuego(&config, &laberinto, &jugador, &fantasmas);
+            gameLoop(&laberinto, &jugador, &fantasmas);
+            clearScreen();
         }
-        for(int i = 0 ; i < config.maxNumeroFantasmas ; i++)
-            moverFantasmas(&fantasmas.f[i], &jugador, &laberinto);
+
+        system("cls");
+        opcion = mostrarMenu();
     }
 
-    printf("GAME OVER\n");
 
     destruirMatriz((void**)laberinto.mat, laberinto.cf);
     destruirFantasmas(&fantasmas);
