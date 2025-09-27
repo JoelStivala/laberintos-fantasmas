@@ -37,6 +37,8 @@ int main(int argc, char* argv[])
             clearScreen();
         }
 
+
+
         system("cls");
         opcion = mostrarMenu();
     }
