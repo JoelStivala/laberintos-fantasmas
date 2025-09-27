@@ -15,8 +15,9 @@ int cargarLaberinto(FILE* pf, void* elem)
     return TODO_OK;
 }
 
-int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
+int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
 {
+    int j = 1;
     laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
 
     //TODO - Funcion para crear el archivo laberinto.txt, actualmente leemos el archivo directamente
@@ -24,6 +25,14 @@ int inicializarLaberinto(tLaberinto* laberinto, tConfig* config)
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
     cargarRegistroMemoria("./Files/laberinto.txt", laberinto, cargarLaberinto);
+
+    while(laberinto->mat[0][j] != 'E')
+    {
+        j++;
+    }
+
+    *xIni = j;
+    *yIni = 1;
 
     return TODO_OK;
 }

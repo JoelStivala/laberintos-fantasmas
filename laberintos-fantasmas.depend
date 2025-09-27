@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1758995411 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
+1758995633 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -127,10 +127,10 @@
 	<stdio.h>
 	"common.h"
 
-1758983512 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\jugador.h
+1758999280 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\jugador.h
 	"config.h"
 
-1758985214 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\laberinto.h
+1758998992 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\laberinto.h
 	<stdio.h>
 	"config.h"
 	"common.h"
@@ -159,12 +159,16 @@
 1758995545 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\config.c
 	"../Headers/config.h"
 
-1758994913 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
+1758999090 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
 	"../Headers/juego.h"
 
-1758994915 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
+1758998741 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
 	"../Headers/jugador.h"
 
-1758995546 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\laberinto.c
+1758999213 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\laberinto.c
 	"../Headers/laberinto.h"
+
+1758995779 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.c
+
+1758995836 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\matriz.c
 

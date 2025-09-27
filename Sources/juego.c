@@ -73,9 +73,11 @@ void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda)
 
 void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
 {
+    int xIni, yIni;
+
     inicializarConfiguracion(config);
-    inicializarLaberinto(laberinto, config);
-    inicializarJugador(jugador, config);
+    inicializarLaberinto(laberinto, &xIni, &yIni, config);
+    inicializarJugador(jugador, xIni, yIni, config);
     inicializarFantasmas(fantasmas, config);
 
     cargarPosicionesFantasmas(fantasmas, laberinto);

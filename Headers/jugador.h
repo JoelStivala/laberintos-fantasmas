@@ -12,7 +12,7 @@ typedef struct
     char j;
 }tJugador;
 
-void inicializarJugador(tJugador* jugador, tConfig* config);
+void inicializarJugador(tJugador* jugador, int xIni, int yIni, tConfig* config);
 void calcularNuevaPosicion(tJugador* jugador, char input, int* nuevoX, int* nuevoY);
 void mover(tJugador* jugador, int nuevoX, int nuevoY);
 

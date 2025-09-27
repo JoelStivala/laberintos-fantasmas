@@ -12,7 +12,7 @@ typedef struct
     int cc;
 } tLaberinto;
 
-int inicializarLaberinto(tLaberinto* laberinto, tConfig* config);
+int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config);
 void dibujarLaberinto(tLaberinto* laberinto);
 int hayBloque(tLaberinto* laberinto, int posX, int posY);
 void eliminarFantasmasLaberinto(tLaberinto* laberinto);

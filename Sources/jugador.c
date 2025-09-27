@@ -1,9 +1,9 @@
 #include "../Headers/jugador.h"
 
-void inicializarJugador(tJugador* jugador, tConfig* config)
+void inicializarJugador(tJugador* jugador, int xIni, int yIni, tConfig* config)
 {
-    jugador->posX = 3;
-    jugador->posY = 1;
+    jugador->posX = xIni;
+    jugador->posY = yIni;
     jugador->puntos = 0;
     jugador->vidas = config->vidasInicio;
     jugador->j = 'J';
