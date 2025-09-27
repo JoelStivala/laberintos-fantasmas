@@ -118,7 +118,8 @@
 1758985215 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberinto.c
 	"laberinto.h"
 
-1758994504 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\vector.c
+1759004939 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\vector.c
+	"Vector.h"
 
 1758995353 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\common.h
 	<stdio.h>
@@ -161,7 +162,7 @@
 1758995545 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\config.c
 	"../Headers/config.h"
 
-1759003054 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
+1759003162 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
 	"../Headers/juego.h"
 
 1758998741 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
@@ -187,4 +188,9 @@
 	<string.h>
 
 1759002440 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.h
+
+1759004960 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\vector.h
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
 
