@@ -99,14 +99,23 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
         if(!hayBloque(laberinto, nuevoX, nuevoY))
         {
             mover(jugador, nuevoX, nuevoY);
+            for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
+            {
+                moverFantasmas(&fantasmas->f[i], jugador, laberinto);
+            }
             procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
         }
-
-        for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
-            moverFantasmas(&fantasmas->f[i], jugador, laberinto);
     }
 
     system("cls");
-    puts("Game Over");
+    if(jugador->vidas > 0)
+    {
+        puts("¡Has ganado!");
+    }
+    else
+    {
+        puts("Game Over");
+    }
+
     pauseEnter();
 }
