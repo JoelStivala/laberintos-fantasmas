@@ -14,10 +14,11 @@ int mostrarMenu()
     return opcion;
 }
 
-void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
+void draw(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
 {
     int i, j, k;
     int hayFantasma;
+    tFantasma* fantasma;
 
     for(i = 0 ; i < laberinto->cf ; i++)
     {
@@ -28,34 +29,38 @@ void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
             else
             {
                 hayFantasma = 0;
-                for(k = 0 ; k < fantasmas->cntFantasmas ; k++)
+                for(k = 0 ; k < fantasmas->ce ; k++)
                 {
-                    if(fantasmas->f[k].posY == i && fantasmas->f[k].posX == j)
+                    fantasma = (tFantasma*)((char*)fantasmas->v + k * fantasmas->tamElem);
+
+                    if(fantasma->posY == i && fantasma->posX == j)
                     {
-                        printf("%c", fantasmas->i);
+                        printf("F");
                         hayFantasma = 1;
-                        break; //reemplazar por un while luego
+                        break;
                     }
                 }
                 if(!hayFantasma)
                     printf("%c", laberinto->mat[i][j]);
             }
-
         }
         puts("");
     }
 }
 
-void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda)
+
+void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda)
 {
     int i;
+    tFantasma* fantasma;
 
-    for(i = 0 ; i < fantasmas->cntFantasmas ; i++)
+    for(i = 0 ; i < fantasmas->ce ; i++)
     {
-        if(jugador->posX == fantasmas->f[i].posX && jugador->posY == fantasmas->f[i].posY)
+        fantasma = fantasmas->v + (i * sizeof(tFantasma));
+        if(jugador->posX == fantasma->posX && jugador->posY == fantasma->posY)
         {
             jugador->vidas--;
-            eliminarFantasmasPosicion(fantasmas, i);
+            vectorEliminarPosicion(fantasmas, i);
         }
     }
 
@@ -71,25 +76,30 @@ void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda)
     }
 }
 
-void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
+void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
 {
     int xIni, yIni;
 
     inicializarConfiguracion(config);
     inicializarLaberinto(laberinto, &xIni, &yIni, config);
     inicializarJugador(jugador, xIni, yIni, config);
-    inicializarFantasmas(fantasmas, config);
+    //inicializarFantasmas(fantasmas, config);
+    vectorCrear(fantasmas, sizeof(tFantasma), config->maxNumeroFantasmas);
+
+
 
     cargarPosicionesFantasmas(fantasmas, laberinto);
     eliminarFantasmasLaberinto(laberinto);
 }
 
-void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
+void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
 {
     int nuevoX, nuevoY;
     char input;
     char buffer;
     tCola cola;
+
+    tFantasma* fantasma;
 
     colaCrear(&cola);
 
@@ -107,9 +117,10 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
         {
             mover(jugador, nuevoX, nuevoY);
         }
-        for(int i = 0 ; i < fantasmas->cntFantasmas ; i++)
+        for(int i = 0 ; i < fantasmas->ce ; i++)
         {
-            moverFantasmas(&fantasmas->f[i], jugador, laberinto);
+            fantasma = fantasmas->v + (i * sizeof(tFantasma));
+            moverFantasmas(fantasma, jugador, laberinto);
         }
         procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
     }

@@ -38,6 +38,7 @@
 		<Unit filename="Estructuras/Matriz.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Estructuras/Matriz.h" />
 		<Unit filename="Estructuras/Vector.c">
 			<Option compilerVar="CC" />
 		</Unit>

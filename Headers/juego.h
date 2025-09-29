@@ -12,10 +12,10 @@
 #include "../Estructuras/Cola.h"
 
 int mostrarMenu();
-void draw(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);
-void procesarCelda(tJugador* jugador, vFantasmas* fantasmas, char* celda);
-void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);
-void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas);
+void draw(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
+void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda);
+void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
+void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
 
 void pauseEnter();
 

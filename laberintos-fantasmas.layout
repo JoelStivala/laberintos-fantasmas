@@ -2,9 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Sources\common.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Sources\fantasma.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="145" topLine="47" />
+			<Cursor1 position="470" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="Headers\jugador.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,44 +12,44 @@
 			<Cursor1 position="270" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Headers\fantasma.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Estructuras\Vector.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="450" topLine="6" />
+			<Cursor1 position="273" topLine="6" />
 		</Cursor>
 	</File>
-	<File name="Estructuras\Vector.h" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="98" topLine="6" />
+			<Cursor1 position="758" topLine="25" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Sources\common.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="284" topLine="0" />
+			<Cursor1 position="208" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="Estructuras\Cola.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Headers\fantasma.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="557" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="Headers\juego.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="241" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="Headers\laberinto.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="339" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Sources\fantasma.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1456" topLine="59" />
+			<Cursor1 position="416" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Sources\laberinto.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="881" topLine="16" />
+			<Cursor1 position="425" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Estructuras\Vector.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="446" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="Sources\juego.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="268" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="Headers\laberinto.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="158" topLine="2" />
 		</Cursor>
 	</File>
 	<File name="Sources\jugador.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -57,14 +57,14 @@
 			<Cursor1 position="114" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Estructuras\Vector.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="446" topLine="7" />
-		</Cursor>
-	</File>
 	<File name="Headers\common.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="401" topLine="0" />
+			<Cursor1 position="312" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Headers\juego.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="576" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="Estructuras\Cola.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -72,14 +72,14 @@
 			<Cursor1 position="162" topLine="1" />
 		</Cursor>
 	</File>
+	<File name="Estructuras\Cola.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="557" topLine="8" />
+		</Cursor>
+	</File>
 	<File name="Sources\config.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="833" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="Sources\juego.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2872" topLine="47" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

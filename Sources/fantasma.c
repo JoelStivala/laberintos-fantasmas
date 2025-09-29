@@ -1,24 +1,11 @@
 #include "../Headers/fantasma.h"
 
-int inicializarFantasmas(vFantasmas* fantasmas, tConfig* config)
-{
-    fantasmas->f = malloc(sizeof(tFantasma) * config->maxNumeroFantasmas);
 
-    if(!fantasmas->f)
-    {
-        return ERR_MEMORIA;
-    }
-
-    fantasmas->cntFantasmas = config->maxNumeroFantasmas;
-    fantasmas->i = 'F';
-    return TODO_OK;
-}
-
-void cargarPosicionesFantasmas(vFantasmas* fantasmas, tLaberinto* laberinto)
+void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
 {
     int i;
     int j;
-    tFantasma* fantasmaAux = fantasmas->f;
+    tFantasma* fantasmaAux = fantasmas->v;
 
     for(i = 1 ; i < laberinto->cf -1 ; i++)
     {
@@ -28,16 +15,11 @@ void cargarPosicionesFantasmas(vFantasmas* fantasmas, tLaberinto* laberinto)
             {
                 fantasmaAux->posX = j;
                 fantasmaAux->posY = i;
+                fantasmas->ce++;
                 fantasmaAux++;
             }
         }
     }
-}
-
-void destruirFantasmas(vFantasmas* fantasmas)
-{
-    if(!fantasmas) return;
-    free(fantasmas->f);
 }
 
 void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab)
@@ -60,19 +42,3 @@ void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab)
         f->posX += dx;
 }
 
-void eliminarFantasmasPosicion(vFantasmas* fantasmas, int pos)
-{
-    tFantasma* i;
-    tFantasma* ult = fantasmas->f + fantasmas->cntFantasmas;
-
-    if (pos < 0 || pos >= fantasmas->cntFantasmas)
-        return;
-
-
-    for(i = fantasmas->f + pos ; i < ult - 1; i++)
-    {
-        *i = *(i + 1);
-    }
-
-    fantasmas->cntFantasmas--;
-}

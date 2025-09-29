@@ -17,7 +17,8 @@ int main(int argc, char* argv[])
     tConfig config;
     tLaberinto laberinto = {0};
     tJugador jugador;
-    vFantasmas fantasmas = {0};
+    //vFantasmas fantasmas = {0};
+    tVector vecFantasmas;
 
     int opcion;
 
@@ -27,8 +28,8 @@ int main(int argc, char* argv[])
     {
         if(opcion == 1)
         {
-            inicializarJuego(&config, &laberinto, &jugador, &fantasmas);
-            gameLoop(&laberinto, &jugador, &fantasmas);
+            inicializarJuego(&config, &laberinto, &jugador, &vecFantasmas);
+            gameLoop(&laberinto, &jugador, &vecFantasmas);
         }
 
         system("cls");
@@ -36,8 +37,8 @@ int main(int argc, char* argv[])
     }
 
     destruirMatriz((void**)laberinto.mat, laberinto.cf);
-    destruirFantasmas(&fantasmas);
-
+    //destruirFantasmas(&fantasmas);
+    vectorDestruir(&vecFantasmas);
     return 0;
 }
 

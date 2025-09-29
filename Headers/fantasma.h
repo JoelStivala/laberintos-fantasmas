@@ -5,6 +5,8 @@
 #include "common.h"
 #include "laberinto.h"
 #include "jugador.h"
+#include "../Estructuras/Vector.h"
+
 typedef struct
 {
     int posX;
@@ -18,9 +20,7 @@ typedef struct
     char i;
 } vFantasmas;
 
-int inicializarFantasmas(vFantasmas* fantasmas, tConfig* config);
-void cargarPosicionesFantasmas(vFantasmas* fantasmas, tLaberinto* laberinto);
+void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto);
 void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab);
-void eliminarFantasmasPosicion(vFantasmas* fantasmas, int pos);
-void destruirFantasmas(vFantasmas* fantasmas);
+
 #endif // FANTASMA_H_INCLUDED
