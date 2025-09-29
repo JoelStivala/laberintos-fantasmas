@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "config.h"
 #include "common.h"
+#include "../Estructuras/Matriz.h"
 
 typedef struct
 {

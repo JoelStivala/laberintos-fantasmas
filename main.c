@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <conio.h>
 
-#include "./Headers/common.h"
+//#include "./Headers/common.h"
+#include "./Estructuras/Matriz.h"
 #include "./Headers/config.h"
 #include "./Headers/jugador.h"
 #include "./Headers/laberinto.h"

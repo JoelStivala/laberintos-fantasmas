@@ -117,11 +117,11 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
     system("cls");
     if(jugador->vidas > 0)
     {
-        puts("Has ganado!");
+        puts("Has ganado!\n");
     }
     else
     {
-        puts("Game Over");
+        puts("Game Over\n");
     }
 
     printf("Lista de movimientos: ");
@@ -130,9 +130,8 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, vFantasmas* fantasmas)
         colaQuitar(&cola, &buffer, sizeof(buffer));
         printf("%c", buffer);
     }
+
     puts("");
-
+    system("pause");
     colaVaciar(&cola);
-
-    pauseEnter();
 }
