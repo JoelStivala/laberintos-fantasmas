@@ -144,5 +144,5 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
 
     puts("");
     system("pause");
-    //colaVaciar(&cola);
+    colaVaciar(&jugador->colaMovimientos);
 }
