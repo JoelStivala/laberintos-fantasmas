@@ -30,15 +30,15 @@ int main(int argc, char* argv[])
         {
             inicializarJuego(&config, &laberinto, &jugador, &vecFantasmas);
             gameLoop(&laberinto, &jugador, &vecFantasmas);
+            destruirMatriz((void**)laberinto.mat, laberinto.cf);
+            vectorDestruir(&vecFantasmas);
         }
 
         system("cls");
         opcion = mostrarMenu();
     }
 
-    destruirMatriz((void**)laberinto.mat, laberinto.cf);
-    //destruirFantasmas(&fantasmas);
-    vectorDestruir(&vecFantasmas);
+
     return 0;
 }
 
