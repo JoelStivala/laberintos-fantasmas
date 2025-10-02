@@ -1,6 +1,5 @@
 #include "../Headers/fantasma.h"
 
-
 void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
 {
     int i;
@@ -16,6 +15,7 @@ void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
                 fantasmaAux->posX = j;
                 fantasmaAux->posY = i;
                 fantasmas->ce++;
+                colaCrear(&fantasmaAux->colaMovimientos);
                 fantasmaAux++;
             }
         }

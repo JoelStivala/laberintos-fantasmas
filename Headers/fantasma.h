@@ -6,11 +6,13 @@
 #include "laberinto.h"
 #include "jugador.h"
 #include "../Estructuras/Vector.h"
+#include "../Estructuras/Cola.h"
 
 typedef struct
 {
     int posX;
     int posY;
+    tCola colaMovimientos;
 } tFantasma;
 
 typedef struct

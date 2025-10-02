@@ -96,12 +96,11 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
 {
     int nuevoX, nuevoY;
     char input;
-    char buffer;
-    tCola cola;
-
+    char buffer[10];
+    //tCola cola;
     tFantasma* fantasma;
 
-    colaCrear(&cola);
+    //colaCrear(&cola);
 
     while(jugador->vidas > 0 && laberinto->mat[jugador->posY][jugador->posX] != 'S')
     {
@@ -110,11 +109,12 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
         printf("VIDAS: %d\nPUNTOS: %d\n", jugador->vidas, jugador->puntos);
 
         input = getch();
-        colaEncolar(&cola, &input, sizeof(input));
+        //colaEncolar(&cola, &input, sizeof(input));
         calcularNuevaPosicion(jugador, input, &nuevoX, &nuevoY);
 
         if(!hayBloque(laberinto, nuevoX, nuevoY))
         {
+            registrarDireccion(jugador, input);
             mover(jugador, nuevoX, nuevoY);
         }
         for(int i = 0 ; i < fantasmas->ce ; i++)
@@ -136,13 +136,13 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
     }
 
     printf("Lista de movimientos: ");
-    while(!colaVacia(&cola))
+    while(!colaVacia(&jugador->colaMovimientos))
     {
-        colaQuitar(&cola, &buffer, sizeof(buffer));
-        printf("%c", buffer);
+        colaQuitar(&jugador->colaMovimientos, buffer, sizeof(buffer));
+        printf("%s", buffer);
     }
 
     puts("");
     system("pause");
-    colaVaciar(&cola);
+    //colaVaciar(&cola);
 }

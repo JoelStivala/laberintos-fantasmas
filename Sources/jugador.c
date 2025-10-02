@@ -6,6 +6,7 @@ void inicializarJugador(tJugador* jugador, int xIni, int yIni, tConfig* config)
     jugador->posY = yIni;
     jugador->puntos = 0;
     jugador->vidas = config->vidasInicio;
+    colaCrear(&(jugador->colaMovimientos));
     jugador->j = 'J';
 }
 
@@ -27,4 +28,19 @@ void mover(tJugador* jugador, int nuevoX, int nuevoY)
 {
     jugador->posX = nuevoX;
     jugador->posY = nuevoY;
+}
+
+void registrarDireccion(tJugador* jugador, char input)
+{
+    char direccion[10]; //arriba, abajo, izquierda, derecha
+    if(input == 'a')
+        strcpy(direccion, "izquierda");
+    else if(input == 'd')
+        strcpy(direccion, "derecha");
+    else if(input == 'w')
+        strcpy(direccion, "arriba");
+    else if(input == 's')
+        strcpy(direccion, "abajo");
+
+    colaEncolar(&jugador->colaMovimientos, direccion, (strlen(direccion)+1));
 }
