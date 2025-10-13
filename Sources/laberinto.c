@@ -15,6 +15,7 @@ int cargarLaberinto(FILE* pf, void* elem)
     return TODO_OK;
 }
 
+/*
 int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
 {
     int j = 1;
@@ -24,6 +25,7 @@ int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* c
 
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
+
     cargarRegistroMemoria("./Files/laberinto.txt", laberinto, cargarLaberinto);
 
     while(laberinto->mat[0][j] != 'E')
@@ -36,6 +38,7 @@ int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* c
 
     return TODO_OK;
 }
+*/
 
 int hayBloque(tLaberinto* laberinto, int posX, int posY)
 {
@@ -57,4 +60,106 @@ void eliminarFantasmasLaberinto(tLaberinto* laberinto)
             }
         }
     }
+}
+
+void acondicionarLaberinto(char** mat, int filas, int columnas)
+{
+    int i, j;
+
+    for(i = 0; i < filas; i ++)
+        for(j = 0; j < columnas; j ++)
+            mat[i][j] = PARED;
+}
+
+///NUEVA
+int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
+{
+    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
+    laberinto->cf = config->filas;
+    laberinto->cc = config->columnas;
+
+    acondicionarLaberinto(laberinto->mat, laberinto->cf, laberinto->cc);
+
+    generarLaberinto(laberinto, xIni, yIni);
+
+    return TODO_OK;
+}
+
+int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
+{
+    int ultimoX, ultimoY;
+    // izquierda, derecha, arriba, abajo
+    int dx[] = {-1, 1, 0, 0};
+    int dy[] = {0, 0, -1, 1};
+    int dir[] = {0, 1, 2, 3};
+
+    srand(time(NULL));
+
+    //Generar entrada al azar
+    *yIni = 0;
+    *xIni = rand() % laberinto->cc;
+    laberinto->mat[*yIni][*xIni] = ENTRADA;
+
+    ///DFS
+    algoritmoGenerador(laberinto->mat, *xIni, 1, laberinto->cf, laberinto->cc, &ultimoX, &ultimoY, dx, dy, dir);
+
+    //Asegurar un camino a la salida.
+    if (ultimoY == 1)
+            laberinto->mat[0][ultimoX] = SALIDA;
+    else if (ultimoY == laberinto->cf - 2)
+        laberinto->mat[laberinto->cf - 1][ultimoX] = SALIDA;
+    else if (ultimoX == 1)
+        laberinto->mat[ultimoY][0] = SALIDA;
+    else if (ultimoX == laberinto->cc - 2)
+        laberinto->mat[ultimoY][laberinto->cc - 1] = SALIDA;
+    else
+    {
+        laberinto->mat[laberinto->cf - 2][laberinto->cc - 3] = CAMINO;
+        laberinto->mat[laberinto->cf - 1][laberinto->cc - 3] = SALIDA;
+    }
+
+    return TODO_OK;
+
+}
+
+void algoritmoGenerador(char** mLaberinto, int x, int y, int filas, int columnas,  int* ultimoX, int* ultimoY,
+                        int dx[], int dy[], int dir[])
+{
+    int i, r, temp, nx, ny;
+
+    mLaberinto[y][x] = CAMINO;
+    *ultimoX = x;
+    *ultimoY = y;
+
+    for(i = 0; i < 4; i ++)
+    {
+        r = rand() % 4; //Num al azar de 0 a 3
+
+        temp = dir[i];
+        dir[i] = dir[r];
+        dir[r] = temp;
+    }
+
+    for(i = 0; i < 4; i ++)
+    {
+        nx = x + dx[dir[i]] * 2;
+        ny = y + dy[dir[i]] * 2;
+
+        if(esDirValida(mLaberinto, nx, ny, filas, columnas))
+        {
+            mLaberinto[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
+            algoritmoGenerador(mLaberinto, nx, ny, filas, columnas, ultimoX, ultimoY, dx, dy, dir);
+        }
+        else
+        {
+            if(filas % 2 == 0 || columnas % 2 == 0)
+                if( (ny == filas - 1 && nx <= columnas - 1) || (nx == columnas - 1 && ny <= filas - 1))
+                    mLaberinto[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
+        }
+    }
+}
+
+int esDirValida(char** mLaberinto, int x, int y, int filas, int columnas)
+{
+    return x > 0 && x < columnas - 1 && y > 0 && y < filas - 1 && mLaberinto[y][x] == PARED;
 }
