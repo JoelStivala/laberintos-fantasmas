@@ -272,3 +272,93 @@
 1759146347 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\common.c
 	"../Headers/common.h"
 
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\cola.c
+	"Cola.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\cola.h
+
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\matriz.c
+	"Matriz.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\matriz.h
+	<stdlib.h>
+
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\vector.c
+	"Vector.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\estructuras\vector.h
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1760144569 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"./Estructuras/Matriz.h"
+	"./Headers/config.h"
+	"./Headers/jugador.h"
+	"./Headers/laberinto.h"
+	"./Headers/fantasma.h"
+	"./Headers/juego.h"
+	"./Estructuras/Cola.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\config.h
+	<stdio.h>
+	"common.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\jugador.h
+	"config.h"
+	"../Estructuras/Cola.h"
+	<string.h>
+
+1760485173 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\laberinto.h
+	<stdio.h>
+	<time.h>
+	"config.h"
+	"common.h"
+	"../Estructuras/Matriz.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\fantasma.h
+	"config.h"
+	"common.h"
+	"laberinto.h"
+	"jugador.h"
+	"../Estructuras/Vector.h"
+	"../Estructuras/Cola.h"
+
+1759407043 c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\headers\juego.h
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	"jugador.h"
+	"laberinto.h"
+	"fantasma.h"
+	"common.h"
+	"../Estructuras/Cola.h"
+
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\common.c
+	"../Headers/common.h"
+
+1760144419 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\config.c
+	"../Headers/config.h"
+
+1760484639 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\fantasma.c
+	"../Headers/fantasma.h"
+
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\juego.c
+	"../Headers/juego.h"
+
+1759407043 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\jugador.c
+	"../Headers/jugador.h"
+
+1760486268 source:c:\users\golde\downloads\laberintos-fantasmas-main\laberintos-fantasmas-main\sources\laberinto.c
+	"../Headers/laberinto.h"
+

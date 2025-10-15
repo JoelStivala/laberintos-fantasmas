@@ -1,5 +1,6 @@
 #include "../Headers/fantasma.h"
 
+
 void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
 {
     int i;

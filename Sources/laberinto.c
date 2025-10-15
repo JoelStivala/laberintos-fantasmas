@@ -1,5 +1,7 @@
 #include "../Headers/laberinto.h"
 
+#define MAX(a,b) ((a)>(b)?(a):(b))
+
 int cargarLaberinto(FILE* pf, void* elem)
 {
     char linea[255];
@@ -45,6 +47,11 @@ int hayBloque(tLaberinto* laberinto, int posX, int posY)
     return laberinto->mat[posY][posX] == '#';
 }
 
+int hayCamino(tLaberinto* laberinto, int posX, int posY)
+{
+    return laberinto->mat[posY][posX] == '.';
+}
+
 // Remplazar los fantasmas estaticos por '.'
 void eliminarFantasmasLaberinto(tLaberinto* laberinto)
 {
@@ -74,15 +81,92 @@ void acondicionarLaberinto(char** mat, int filas, int columnas)
 ///NUEVA
 int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
 {
-    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
+    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas); //validar la creacion
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
 
     acondicionarLaberinto(laberinto->mat, laberinto->cf, laberinto->cc);
 
+    //Necesario para la aleatoriedad
+    srand(time(NULL));
+
     generarLaberinto(laberinto, xIni, yIni);
 
+    facilitarLaberinto(laberinto);
+
+    posicionarElementos(laberinto, config);
+
     return TODO_OK;
+}
+
+void facilitarLaberinto(tLaberinto* laberinto)
+{
+    int auxX, auxY;
+    int cont = MAX(laberinto->cc / 2, laberinto->cf / 2);
+
+    while(cont > 0) //Crea x pasillos según cont
+    {
+        do
+        {
+            auxX = 1 + rand() % (laberinto->cc - 3); //+1 para asegurar que no sea borde
+            auxY = 1 + rand() % (laberinto->cf - 3); //-3 para asegurar que no sea borde
+        }while(!hayBloque(laberinto, auxX, auxY));
+
+        laberinto->mat[auxY][auxX] = '.';
+        cont--;
+    }
+
+}
+
+void posicionarElementos(tLaberinto* laberinto, tConfig* config)
+{
+    int x, y;
+    int cantElem;
+
+    //Fantasmas
+    cantElem = config->maxNumeroFantasmas;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'F';
+        cantElem --;
+    }
+
+    //Premios
+    cantElem = config->maxNumeroPremios;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'P';
+        cantElem --;
+    }
+
+    //Vidas Extra
+    cantElem = config->maxVidasExtra;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'V';
+        cantElem --;
+    }
+}
+
+//Puede fallar?
+void aleatoriezarAparicionDeElem(tLaberinto* laberinto, int* x, int* y)
+{
+    int auxX, auxY;
+
+    do
+    {
+        auxX = rand() % (laberinto->cc - 1);
+        auxY = rand() % (laberinto->cf - 1);
+    }while(!hayCamino(laberinto, auxX, auxY));
+
+    *x = auxX;
+    *y =  auxY;
 }
 
 int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
@@ -92,8 +176,6 @@ int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
     int dx[] = {-1, 1, 0, 0};
     int dy[] = {0, 0, -1, 1};
     int dir[] = {0, 1, 2, 3};
-
-    srand(time(NULL));
 
     //Generar entrada al azar
     *yIni = 0;
