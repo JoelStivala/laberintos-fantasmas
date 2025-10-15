@@ -2,6 +2,7 @@
 
 int cargarConfiguracion(FILE* pf, void* elem)
 {
+    ///Validar que columnas y filas sean >= 5
     char linea[255];
     tConfig* config = elem;
 

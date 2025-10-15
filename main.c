@@ -14,6 +14,7 @@
 
 int main(int argc, char* argv[])
 {
+
     tConfig config;
     tLaberinto laberinto = {0};
     tJugador jugador;
@@ -37,7 +38,6 @@ int main(int argc, char* argv[])
         system("cls");
         opcion = mostrarMenu();
     }
-
 
     return 0;
 }
