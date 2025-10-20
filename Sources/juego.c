@@ -56,7 +56,7 @@ void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda)
 
     for(i = 0 ; i < fantasmas->ce ; i++)
     {
-        fantasma = fantasmas->v + (i * sizeof(tFantasma));
+        fantasma = (tFantasma*)((char*)fantasmas->v + i * fantasmas->tamElem);
         if(jugador->posX == fantasma->posX && jugador->posY == fantasma->posY)
         {
             jugador->vidas--;
@@ -119,7 +119,7 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
         }
         for(int i = 0 ; i < fantasmas->ce ; i++)
         {
-            fantasma = fantasmas->v + (i * sizeof(tFantasma));
+            fantasma = (tFantasma*)((char*)fantasmas->v + i * fantasmas->tamElem);
             moverFantasmas(fantasma, jugador, laberinto);
         }
         procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
