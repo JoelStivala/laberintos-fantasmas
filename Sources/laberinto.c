@@ -42,16 +42,6 @@ int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* c
 }
 */
 
-int hayBloque(tLaberinto* laberinto, int posX, int posY)
-{
-    return laberinto->mat[posY][posX] == '#';
-}
-
-int hayCamino(tLaberinto* laberinto, int posX, int posY)
-{
-    return laberinto->mat[posY][posX] == '.';
-}
-
 // Remplazar los fantasmas estaticos por '.'
 void eliminarFantasmasLaberinto(tLaberinto* laberinto)
 {
@@ -75,7 +65,7 @@ void acondicionarLaberinto(char** mat, int filas, int columnas)
 
     for(i = 0; i < filas; i ++)
         for(j = 0; j < columnas; j ++)
-            mat[i][j] = PARED;
+            mat[i][j] = BLOQUE;
 }
 
 ///NUEVA
@@ -171,7 +161,7 @@ void aleatoriezarAparicionDeElem(tLaberinto* laberinto, int* x, int* y)
 
 int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
 {
-    int ultimoX, ultimoY;
+    int r;
     // izquierda, derecha, arriba, abajo
     int dx[] = {-1, 1, 0, 0};
     int dy[] = {0, 0, -1, 1};
@@ -179,39 +169,27 @@ int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
 
     //Generar entrada al azar
     *yIni = 0;
-    *xIni = rand() % laberinto->cc;
+    *xIni = 1 + rand() % (laberinto->cc - 2); //+1 y -1 para que no sea borde izq ni der. Del 1 al cc - 1
     laberinto->mat[*yIni][*xIni] = ENTRADA;
 
     ///DFS
-    algoritmoGenerador(laberinto->mat, *xIni, 1, laberinto->cf, laberinto->cc, &ultimoX, &ultimoY, dx, dy, dir);
+    algoritmoGenerador(laberinto, *xIni, 1, dx, dy, dir);
 
     //Asegurar un camino a la salida.
-    if (ultimoY == 1)
-            laberinto->mat[0][ultimoX] = SALIDA;
-    else if (ultimoY == laberinto->cf - 2)
-        laberinto->mat[laberinto->cf - 1][ultimoX] = SALIDA;
-    else if (ultimoX == 1)
-        laberinto->mat[ultimoY][0] = SALIDA;
-    else if (ultimoX == laberinto->cc - 2)
-        laberinto->mat[ultimoY][laberinto->cc - 1] = SALIDA;
-    else
-    {
-        laberinto->mat[laberinto->cf - 2][laberinto->cc - 3] = CAMINO;
-        laberinto->mat[laberinto->cf - 1][laberinto->cc - 3] = SALIDA;
-    }
+    r = 1 + rand() % (laberinto->cc - 2);
+    laberinto->mat[laberinto->cf - 2][r] = CAMINO;
+    laberinto->mat[laberinto->cf - 1][r] = SALIDA;
 
     return TODO_OK;
 
 }
 
-void algoritmoGenerador(char** mLaberinto, int x, int y, int filas, int columnas,  int* ultimoX, int* ultimoY,
-                        int dx[], int dy[], int dir[])
+void algoritmoGenerador(tLaberinto* laberinto, int x, int y,
+                        const int dx[], const int dy[], int dir[])
 {
     int i, r, temp, nx, ny;
 
-    mLaberinto[y][x] = CAMINO;
-    *ultimoX = x;
-    *ultimoY = y;
+    laberinto->mat[y][x] = CAMINO;
 
     for(i = 0; i < 4; i ++)
     {
@@ -227,21 +205,44 @@ void algoritmoGenerador(char** mLaberinto, int x, int y, int filas, int columnas
         nx = x + dx[dir[i]] * 2;
         ny = y + dy[dir[i]] * 2;
 
-        if(esDirValida(mLaberinto, nx, ny, filas, columnas))
+        if(esDirGenLabValida(laberinto, nx, ny))
         {
-            mLaberinto[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
-            algoritmoGenerador(mLaberinto, nx, ny, filas, columnas, ultimoX, ultimoY, dx, dy, dir);
+            laberinto->mat[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
+            algoritmoGenerador(laberinto, nx, ny, dx, dy, dir);
         }
         else
         {
-            if(filas % 2 == 0 || columnas % 2 == 0)
-                if( (ny == filas - 1 && nx <= columnas - 1) || (nx == columnas - 1 && ny <= filas - 1))
-                    mLaberinto[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
+            if(laberinto->cf % 2 == 0 || laberinto->cc % 2 == 0)
+                if( (ny == laberinto->cf - 1 && nx <= laberinto->cc - 1) || (nx == laberinto->cc - 1 && ny <= laberinto->cf - 1))
+                    laberinto->mat[ y + dy[dir[i]]  ] [ x + dx[dir[i]] ] = CAMINO;
         }
     }
 }
 
-int esDirValida(char** mLaberinto, int x, int y, int filas, int columnas)
+int esDirGenLabValida(tLaberinto* laberinto, int posX, int posY)
 {
-    return x > 0 && x < columnas - 1 && y > 0 && y < filas - 1 && mLaberinto[y][x] == PARED;
+    return posX > 0 && posX < laberinto->cc - 1 && posY > 0 && posY < laberinto->cf - 1 && hayBloque(laberinto, posX, posY);
+}
+
+int hayBloque(tLaberinto* laberinto, int posX, int posY)
+{
+    return laberinto->mat[posY][posX] == '#';
+}
+
+int hayCamino(tLaberinto* laberinto, int posX, int posY)
+{
+    return laberinto->mat[posY][posX] == '.';
+}
+
+int esDirValida(tLaberinto* laberinto, int posX, int posY)
+{
+    if(posX >= 0 && posX < laberinto->cc - 1 &&
+       posY >= 0 && posY <= laberinto->cf - 1)
+    {
+        return (!hayBloque(laberinto, posX, posY) ) ||
+                (laberinto->mat[posY][posX] == ENTRADA) ||
+                (laberinto->mat[posY][posX] == SALIDA);
+    }
+
+    return FALSE;
 }

@@ -112,7 +112,7 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
         //colaEncolar(&cola, &input, sizeof(input));
         calcularNuevaPosicion(jugador, input, &nuevoX, &nuevoY);
 
-        if(!hayBloque(laberinto, nuevoX, nuevoY))
+        if(esDirValida(laberinto, nuevoX, nuevoY))
         {
             registrarDireccion(jugador, input);
             mover(jugador, nuevoX, nuevoY);
