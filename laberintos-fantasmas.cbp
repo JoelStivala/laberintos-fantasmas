@@ -31,10 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Estructuras/Arbol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Estructuras/Arbol.h" />
 		<Unit filename="Estructuras/Cola.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Estructuras/Cola.h" />
+		<Unit filename="Estructuras/Lista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Estructuras/Lista.h" />
 		<Unit filename="Estructuras/Matriz.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -45,6 +53,7 @@
 		<Unit filename="Estructuras/Vector.h" />
 		<Unit filename="Headers/common.h" />
 		<Unit filename="Headers/config.h" />
+		<Unit filename="Headers/db.h" />
 		<Unit filename="Headers/fantasma.h" />
 		<Unit filename="Headers/juego.h" />
 		<Unit filename="Headers/jugador.h" />
@@ -53,6 +62,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Sources/config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Sources/db.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Sources/fantasma.c">

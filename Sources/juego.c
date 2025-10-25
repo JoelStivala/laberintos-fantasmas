@@ -4,12 +4,13 @@ int mostrarMenu()
 {
     int opcion;
 
-    puts("======LABERINTOS Y FANTASMAS======");
+    puts("====== LABERINTOS Y FANTASMAS ======");
     puts("1) Jugar");
-    puts("2) Ver tabla de puntuaciones");
+    puts("2) Ver ranking de jugadores");
     puts("3) Salir");
 
     scanf("%d", &opcion);
+    getchar();
 
     return opcion;
 }
@@ -60,6 +61,7 @@ void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda)
         if(jugador->posX == fantasma->posX && jugador->posY == fantasma->posY)
         {
             jugador->vidas--;
+            liberarMovimientosFantasma(fantasma);
             vectorEliminarPosicion(fantasmas, i);
         }
     }
@@ -83,40 +85,38 @@ void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador,
     inicializarConfiguracion(config);
     inicializarLaberinto(laberinto, &xIni, &yIni, config);
     inicializarJugador(jugador, xIni, yIni, config);
-    //inicializarFantasmas(fantasmas, config);
     vectorCrear(fantasmas, sizeof(tFantasma), config->maxNumeroFantasmas);
-
-
 
     cargarPosicionesFantasmas(fantasmas, laberinto);
     eliminarFantasmasLaberinto(laberinto);
 }
 
-void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
+void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador)
 {
     int nuevoX, nuevoY;
     char input;
-    char buffer[10];
-    //tCola cola;
+    //char buffer[10];
     tFantasma* fantasma;
-
-    //colaCrear(&cola);
+    int movimientos = 0;
 
     while(jugador->vidas > 0 && laberinto->mat[jugador->posY][jugador->posX] != 'S')
     {
-        system("cls");
+        system("cls || clear");
         draw(laberinto, jugador, fantasmas);
-        printf("VIDAS: %d\nPUNTOS: %d\n", jugador->vidas, jugador->puntos);
+        printf("Jugador: %s\n", nombreJugador); // Usar el parámetro
+        printf("VIDAS: %d\nPUNTOS: %d\nMOVIMIENTOS: %d\n", jugador->vidas, jugador->puntos, movimientos);
 
         input = getch();
-        //colaEncolar(&cola, &input, sizeof(input));
+
         calcularNuevaPosicion(jugador, input, &nuevoX, &nuevoY);
 
         if(esDirValida(laberinto, nuevoX, nuevoY))
         {
             registrarDireccion(jugador, input);
             mover(jugador, nuevoX, nuevoY);
+            movimientos++;
         }
+
         for(int i = 0 ; i < fantasmas->ce ; i++)
         {
             fantasma = (tFantasma*)((char*)fantasmas->v + i * fantasmas->tamElem);
@@ -125,7 +125,12 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
         procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
     }
 
-    system("cls");
+    int ganada = (jugador->vidas > 0);
+    //ganada
+
+    guardarPartida(nombreJugador, jugador->puntos, movimientos, ganada?'G':'P');
+
+    system("cls || clear");
     if(jugador->vidas > 0)
     {
         puts("Has ganado!\n");
@@ -135,14 +140,19 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
         puts("Game Over\n");
     }
 
-    printf("Lista de movimientos: ");
+    printf("Resumen de partida para %s:\n", nombreJugador);
+    printf("Puntos: %d | Movimientos: %d | Resultado: %s\n", jugador->puntos, movimientos, ganada ? "Ganada" : "Perdida");
+
+    /*printf("Lista de movimientos: ");
     while(!colaVacia(&jugador->colaMovimientos))
     {
         colaQuitar(&jugador->colaMovimientos, buffer, sizeof(buffer));
-        printf("%s", buffer);
+        printf("%s ", buffer);
     }
-
-    puts("");
+    mostrarMovimientosFantasma(fantasmas);
+    puts("");*/
     system("pause");
+    system("cls || clear");
     colaVaciar(&jugador->colaMovimientos);
+    liberarMovimientosFantasmas(fantasmas);
 }

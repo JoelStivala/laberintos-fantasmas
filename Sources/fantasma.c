@@ -26,6 +26,7 @@ void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
 void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab)
 {
     int dx = 0, dy = 0;
+    int movYX[2];
 
     if (j->posX > f->posX)
         dx = 1;
@@ -41,5 +42,47 @@ void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab)
         f->posY += dy;
     else if (!hayBloque(lab, f->posX + dx, f->posY))
         f->posX += dx;
+
+    movYX[0] = f->posY;
+    movYX[1] = f->posX;
+
+    colaEncolar(&f->colaMovimientos, movYX, sizeof(movYX));
 }
 
+void liberarMovimientosFantasmas(tVector* fantasmas)
+{
+    void* i;
+    void* ult = (char*)fantasmas->v + fantasmas->ce * fantasmas->tamElem;
+    tFantasma* f;
+
+    for (i = fantasmas->v; i < ult; i = (char*)i + fantasmas->tamElem)
+    {
+        f = (tFantasma*)i;
+        colaVaciar(&f->colaMovimientos);
+    }
+}
+
+void liberarMovimientosFantasma(tFantasma* fantasma)
+{
+    colaVaciar(&fantasma->colaMovimientos);
+}
+
+void mostrarMovimientosFantasma(tVector *fantasmas)
+{
+    void* i;
+    void* ult = (char*)fantasmas->v + fantasmas->ce * fantasmas->tamElem;
+    int posYX[2];
+    tFantasma* f;
+
+    for (i = fantasmas->v; i < ult; i = (char*)i + fantasmas->tamElem)
+    {
+        f = (tFantasma*)i;
+        while(!colaVacia(&f->colaMovimientos))
+        {
+            colaQuitar(&f->colaMovimientos, posYX, sizeof(posYX));
+            printf("%d %d\t", posYX[0], posYX[1]);
+        }
+        printf("\n\n");
+    }
+
+}

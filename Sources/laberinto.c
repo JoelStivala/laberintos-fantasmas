@@ -1,6 +1,6 @@
 #include "../Headers/laberinto.h"
 
-#define MAX(a,b) ((a)>(b)?(a):(b))
+//#define MAX(a,b) ((a)>(b)?(a):(b))
 
 int cargarLaberinto(FILE* pf, void* elem)
 {
@@ -42,7 +42,6 @@ int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* c
 }
 */
 
-// Remplazar los fantasmas estaticos por '.'
 void eliminarFantasmasLaberinto(tLaberinto* laberinto)
 {
     int i, j;

@@ -1,7 +1,4 @@
 #include "Cola.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 void colaCrear(tCola *cola)
 {
@@ -25,7 +22,7 @@ int colaEncolar(tCola *cola, const void *info, unsigned bytes)
         return 0;
     }
     memcpy(nue->info,info,bytes);
-    nue->tamanio=bytes;
+    nue->tamElem=bytes;
     nue->sig=NULL;//por ser el utlimo, no tiene a nadie detras ¡¡SIEMPRE!!
 
     if(cola->pri==NULL)
@@ -42,7 +39,7 @@ int colaVerPrimero(const tCola *cola, void *info, unsigned bytes)
 {
     if(cola->pri==NULL)
         return 0;
-    memcpy(info,cola->pri->info,MIN(bytes,cola->pri->tamanio));
+    memcpy(info,cola->pri->info,MIN(bytes,cola->pri->tamElem));
     return 1;
 }
 
@@ -52,7 +49,7 @@ int colaQuitar(tCola *cola, void *info, unsigned bytes)
     if(cola->pri==NULL)
         return 0;
     aux = cola->pri;
-    memcpy(info,aux->info,MIN(aux->tamanio,bytes));
+    memcpy(info,aux->info,MIN(aux->tamElem,bytes));
     //memcpy(info,cola->pri->info,MIN(bytes,cola->pri->tamanio));
     //aux=cola->pri;
     cola->pri=aux->sig;

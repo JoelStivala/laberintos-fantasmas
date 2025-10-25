@@ -1,14 +1,10 @@
 #ifndef COLA_H_INCLUDED
 #define COLA_H_INCLUDED
 
-#define MIN(a,b) (((a)<(b))?(a):(b))
-
-typedef struct sNodo
-{
-    void* info;
-    unsigned tamanio;
-    struct sNodo* sig;
-} tNodo;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "../Headers/common.h"
 
 typedef struct
 {
