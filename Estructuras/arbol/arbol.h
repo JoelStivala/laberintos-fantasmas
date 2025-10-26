@@ -1,16 +1,7 @@
 #ifndef ARBOL_H_INCLUDED
 #define ARBOL_H_INCLUDED
 
-#include "../Headers/common.h"
-
-#define BALANCEADO 1
-#define NO_NALANCEADO 0
-
-#define COMPLETO 1
-#define NO_COMPLETO 0
-
-#define AVL 1
-#define NO_AVL 0
+#include "../macros.h"
 
 typedef struct aNodo{
     void *info;

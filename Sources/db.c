@@ -33,12 +33,12 @@ int inicializarBD(tArbol* arbolUsuarios)
     FILE* pf = fopen("./Files/usuarios.dat", "rb");
     tUsuario usuario;
 
-    crearArbol(arbolUsuarios);
+    crearArbolBin(arbolUsuarios);
     if(!pf)
         return TODO_OK;
 
     while(fread(&usuario, sizeof(tUsuario), 1, pf) == 1)
-        insertarEnArbolR(arbolUsuarios, &usuario, sizeof(tUsuario), compararUsuarios);
+        insertarEnArbolBinRecursivo(arbolUsuarios, &usuario, sizeof(tUsuario), compararUsuarios,sinDuplicados);
 
     fclose(pf);
     return TODO_OK;
@@ -56,7 +56,7 @@ int guardarUsuario(tArbol* arbolUsuarios, const char* nombre)
     fwrite(&nuevoUsuario, sizeof(tUsuario), 1, pf);
     fclose(pf);
 
-    insertarEnArbolR(arbolUsuarios, &nuevoUsuario, sizeof(tUsuario), compararUsuarios);
+    insertarEnArbolBinRecursivo(arbolUsuarios, &nuevoUsuario, sizeof(tUsuario), compararUsuarios,sinDuplicados);
     return TODO_OK;
 }
 

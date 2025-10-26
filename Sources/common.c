@@ -27,3 +27,8 @@ void pauseEnter() {
     getchar();
 }
 
+int sinDuplicados(void* dest, const void* src)
+{
+    return 0;
+}
+

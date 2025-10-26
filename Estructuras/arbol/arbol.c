@@ -17,12 +17,12 @@ int insertarEnArbolBinRecursivo(tArbol *raiz, const void *info, unsigned bytes, 
     {
         nue = (tNodoArbol*)malloc(sizeof(tNodoArbol));
         if(!nue)
-            return ERR_MEMORIA;
+            return LLENA;
         nue->info=malloc(bytes);
         if(!nue->info)
         {
             free(nue);
-            return ERR_MEMORIA;
+            return LLENA;
         }
         memcpy(nue->info,info,bytes);
         nue->izq=NULL;
@@ -53,12 +53,12 @@ int insertarEnArbolBin(tArbol *raiz, const void *info, unsigned bytes, cmp compa
     }
     nue = (tNodoArbol*)malloc(sizeof(tNodoArbol));
     if(!nue)
-        return ERR_MEMORIA;
+        return LLENA;
     nue->info=malloc(bytes);
     if(!nue->info)
     {
         free(nue);
-        return ERR_MEMORIA;
+        return LLENA;
     }
     memcpy(nue->info,info,bytes);
     nue->izq=NULL;
@@ -115,7 +115,7 @@ void* busquedaBin(tArbol *raiz, void *clave, unsigned bytes, cmp comparacion)
 
 int arbolVacio(const tArbol *raiz)
 {
-    return *raiz==NULL ? 1 : 0;
+    return *raiz==NULL ? VACIA : NO_VACIA;
 }
 
 int arbolLleno(const tArbol *raiz, unsigned bytes)
@@ -123,16 +123,16 @@ int arbolLleno(const tArbol *raiz, unsigned bytes)
     tNodoArbol *aux;
     aux = (tNodoArbol*)malloc(sizeof(tNodoArbol));
     if(!aux)
-        return 1;
+        return LLENA;
     aux->info=malloc(bytes);
     if(!aux->info)
     {
         free(aux);
-        return 1;
+        return LLENA;
     }
     free(aux->info);
     free(aux);
-    return 0;
+    return NO_LLENA;
 }
 
 void vaciarArbol(tArbol *raiz)
@@ -202,7 +202,7 @@ tNodoArbol* buscarClaveMenor(tArbol *raiz)
 int recorrerSubarbolDer(tArbol *raiz, condicion funcion)
 {
     if(*raiz==NULL)
-        return 0;
+        return VACIA;
     return _accionSubarbolDer(&(*raiz)->der,funcion);
 }
 
@@ -265,7 +265,7 @@ int alturaArbol(tArbol *raiz)
         return 0;
     hi = alturaArbol(&(*raiz)->izq);
     hd = alturaArbol(&(*raiz)->der);
-    return MAX(hi+1,hd+1);
+    return (hi>hd) ? hi+1 : hd+1;
 }
 
 int nivelArbol(tArbol *raiz)
@@ -337,7 +337,7 @@ int eliminarNodo(tArbol *raiz, void *clave, unsigned bytes, int cmp(const void*,
     int comparacion;
     tNodoArbol *aux;
     if(*raiz==NULL)
-        return TODO_OK;
+        return TODO_OK
     comparacion = cmp(clave,(*raiz)->info);
     if(comparacion==0)
     {
@@ -373,7 +373,6 @@ int eliminarRaiz(tArbol* elim, void *clave)
     else
         (*elim)->izq=nodo->der;
     ///terminar en casa
-    return 1;
 }
 
 ///*plantear busqueda binaria

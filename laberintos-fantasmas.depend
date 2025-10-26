@@ -495,3 +495,126 @@
 	<string.h>
 	"../Headers/common.h"
 
+1761506871 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\arbol.c
+	"arbol.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1761506893 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\arbol.h
+	"../Headers/common.h"
+
+1761507062 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\cola.c
+	"Cola.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\lista.c
+	"Lista.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\lista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\matriz.c
+	"Matriz.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\matriz.h
+	<stdlib.h>
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\vector.c
+	"Vector.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\estructuras\vector.h
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"./Headers/config.h"
+	"./Headers/jugador.h"
+	"./Headers/laberinto.h"
+	"./Headers/fantasma.h"
+	"./Headers/juego.h"
+	"./Headers/db.h"
+	"./Estructuras/Matriz.h"
+	"./Estructuras/Cola.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\config.h
+	<stdio.h>
+	"common.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\jugador.h
+	"config.h"
+	"../Estructuras/Cola.h"
+	<string.h>
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\laberinto.h
+	<stdio.h>
+	<time.h>
+	"config.h"
+	"common.h"
+	"../Estructuras/Matriz.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\fantasma.h
+	"config.h"
+	"common.h"
+	"laberinto.h"
+	"jugador.h"
+	"../Estructuras/Vector.h"
+	"../Estructuras/Cola.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\juego.h
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	"jugador.h"
+	"laberinto.h"
+	"fantasma.h"
+	"common.h"
+	"db.h"
+	"../Estructuras/Cola.h"
+	"../Estructuras/Arbol.h"
+
+1761504795 c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\headers\db.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Estructuras/Arbol.h"
+	"../Estructuras/Lista.h"
+
+1761507064 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\common.c
+	"../Headers/common.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\config.c
+	"../Headers/config.h"
+
+1761507084 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\db.c
+	"../Headers/db.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\fantasma.c
+	"../Headers/fantasma.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\juego.c
+	"../Headers/juego.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\jugador.c
+	"../Headers/jugador.h"
+
+1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\laberinto.c
+	"../Headers/laberinto.h"
+
