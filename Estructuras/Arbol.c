@@ -319,7 +319,7 @@ int esArbolBinCompleto(tArbol *raiz)
     int potencia = pow(2,alturaArbol(raiz))-1;
     return nodosArbol == potencia ? COMPLETO : NO_COMPLETO;
 }
-
+///PENDIENTE DE REVISION, IDEM AVL
 int esArbolBinBalanceado(tArbol *raiz)
 {
     if(*raiz==NULL)
@@ -358,23 +358,33 @@ int eliminarNodo(tArbol *raiz, void *clave, unsigned bytes, int cmp(const void*,
     return eliminarNodo(&(*raiz)->izq,clave,bytes,cmp);
 }
 
-int eliminarRaiz(tArbol* elim, void *clave)
+int eliminarRaiz(tArbol* raiz, void *clave, unsigned bytes)
 {
+    tArbol *p;
     tNodoArbol *nodo;
-    int hi = nivelArbol(&(*elim)->izq);
-    int hd = nivelArbol(&(*elim)->der);
+    int hi = nivelArbol(&(*raiz)->izq);
+    int hd = nivelArbol(&(*raiz)->der);
     if(hi>hd)
-        nodo=buscarClaveMayor(&(*elim)->izq);
+    {
+        p = &(*raiz)->izq;
+        while((*p)->der)
+            p=&(*p)->der;
+    }
     else
-        nodo=buscarClaveMenor(&(*elim)->der);
-    memcpy(clave,nodo->info,nodo->tam);///arreglar luego lo del minimo
+    {
+        p = &(*raiz)->der;
+        while((*p)->izq)
+            p=&(*p)->izq;
+    }
+    nodo=*p;
+    memcpy(clave,nodo->info,MIN(nodo->tam,bytes));
     if(nodo->izq)
-        (*elim)->der=nodo->izq;
+        *p=nodo->izq;
     else
-        (*elim)->izq=nodo->der;
-    ///terminar en casa
-    return 1;
+        *p=nodo->der;
+    memcpy((*raiz)->info,nodo->info,MIN(nodo->tam,bytes));
+    free(nodo->info);
+    free(nodo);
+    return TODO_OK;
 }
 
-///*plantear busqueda binaria
-///*pensar en la utilidad de los 3 recorridos
