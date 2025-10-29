@@ -388,3 +388,66 @@ int eliminarRaiz(tArbol* raiz, void *clave, unsigned bytes)
     return TODO_OK;
 }
 
+///INDICES
+void MostrarCliente(void *info)
+{
+    tClientesSimple *p=(tClientesSimple*)info;
+    printf("%3d %1c %1c\n", p->DNI, p->nombre, p->apellido);
+}
+
+void mostrarIndice(void *info)
+{
+    tIndice *p = (tIndice*)info;
+    printf("%-5c %-6d\n", p->apellido, p->ubicacion);
+}
+
+int recorrerArchBin(const char *arch, unsigned bytes, tArbol *raiz)
+{
+    FILE *pArch;
+    tClientesSimple buffer;
+    tIndice index;
+    pArch = fopen(arch,"rb");
+    if(!pArch)
+        return 0;
+    fread(&buffer,bytes,1,pArch);
+    index.ubicacion=0;
+    while(!feof(pArch))
+    {
+        index.apellido=buffer.apellido;
+        insertarEnArbolBinRecursivo(raiz,&index,sizeof(tIndice),compararApellidos,sinDuplicados);
+        fread(&buffer,bytes,1,pArch);
+        index.ubicacion++;
+    }
+    fclose(pArch);
+    return 1;
+}
+
+int compararApellidos(const void *a, const void *b)
+{
+    tIndice *p_a = (tIndice*)a;
+    tIndice *p_b = (tIndice*)b;
+    return (p_a->apellido-p_b->apellido);
+}
+
+int crearIndice(const char *arch, tArbol *raiz)
+{
+    FILE *indice;
+    indice = fopen(arch,"wb");
+    if(!indice)
+        return 0;
+    _escribirIndice(indice, raiz);
+    fclose(indice);
+    return 1;
+}
+
+void _escribirIndice(FILE *indice, tArbol *raiz)
+{
+    if(*raiz)
+    {
+        _escribirIndice(indice, &(*raiz)->izq);
+        fwrite((*raiz)->info,(*raiz)->tam,1,indice);
+        _escribirIndice(indice, &(*raiz)->der);
+    }
+}
+
+
