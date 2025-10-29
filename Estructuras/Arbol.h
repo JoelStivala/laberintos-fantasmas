@@ -65,6 +65,13 @@ int esAVL(tArbol *raiz);
 int eliminarNodo(tArbol *raiz, void *clave, unsigned bytes,int cmp(const void*,const void*));
 int eliminarRaiz(tArbol* raiz, void *clave,unsigned bytes);
 
-
+///algunas primitivas para los indices, faltaria subir lo de .idx en un arbol balanceado
+void MostrarCliente(void *info);
+void mostrarIndice(void *info);
+int recorrerArchBin(const char *arch, unsigned bytes,tArbol *raiz);
+int compararApellidos(const void *a, const void *b);
+int crearIndice(const char *arch, tArbol *raiz);
+void _escribirIndice(FILE *indice, tArbol *raiz);
 
 #endif // ARBOL_H_INCLUDED
+
