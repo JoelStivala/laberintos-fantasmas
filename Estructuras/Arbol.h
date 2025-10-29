@@ -57,11 +57,14 @@ int recorrerDesdeNivel(tArbol *raiz, int nivel, void accion(void*));
 //arbol completo, balanceado, avl y eliminar un nodo (se puede eliminar raiz)
 
 int esArbolBinCompleto(tArbol *raiz);
+///estas 2 funciones quedan pendientes de completar
 int esArbolBinBalanceado(tArbol *raiz);
 int esAVL(tArbol *raiz);
-///eliminar aparciciones (pendientes)
+
+
 int eliminarNodo(tArbol *raiz, void *clave, unsigned bytes,int cmp(const void*,const void*));
-int eliminarRaiz(tArbol* elim, void *clave);
+int eliminarRaiz(tArbol* raiz, void *clave,unsigned bytes);
+
 
 
 #endif // ARBOL_H_INCLUDED
