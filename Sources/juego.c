@@ -61,6 +61,8 @@ void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda)
         if(jugador->posX == fantasma->posX && jugador->posY == fantasma->posY)
         {
             jugador->vidas--;
+            jugador->posX = jugador->posXIni;
+            jugador->posY = jugador->posYIni;
             liberarMovimientosFantasma(fantasma);
             vectorEliminarPosicion(fantasmas, i);
         }

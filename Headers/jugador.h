@@ -9,6 +9,8 @@ typedef struct
 {
     int posX;
     int posY;
+    int posXIni;
+    int posYIni;
     int vidas;
     int puntos;
     tCola colaMovimientos;

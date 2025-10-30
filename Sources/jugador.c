@@ -4,6 +4,8 @@ void inicializarJugador(tJugador* jugador, int xIni, int yIni, tConfig* config)
 {
     jugador->posX = xIni;
     jugador->posY = yIni;
+    jugador->posXIni = xIni;
+    jugador->posYIni = yIni;
     jugador->puntos = 0;
     jugador->vidas = config->vidasInicio;
     colaCrear(&(jugador->colaMovimientos));

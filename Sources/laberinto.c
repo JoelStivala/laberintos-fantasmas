@@ -179,6 +179,8 @@ int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
     laberinto->mat[laberinto->cf - 2][r] = CAMINO;
     laberinto->mat[laberinto->cf - 1][r] = SALIDA;
 
+    (*yIni)++;
+
     return TODO_OK;
 
 }
