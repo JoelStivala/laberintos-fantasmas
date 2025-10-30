@@ -231,10 +231,10 @@
 	<stdio.h>
 	"common.h"
 
-1761315978 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\fantasma.c
+1761859424 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\fantasma.c
 	"../Headers/fantasma.h"
 
-1761315983 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\headers\fantasma.h
+1761858654 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\headers\fantasma.h
 	"config.h"
 	"common.h"
 	"laberinto.h"
@@ -254,10 +254,10 @@
 	"../Estructuras/Cola.h"
 	<string.h>
 
-1761858111 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\juego.c
+1761860804 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\juego.c
 	"../Headers/juego.h"
 
-1761410454 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\headers\juego.h
+1761859424 c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\headers\juego.h
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -269,10 +269,10 @@
 	"../Estructuras/Cola.h"
 	"../Estructuras/Arbol.h"
 
-1761858066 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\jugador.c
+1761859595 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\jugador.c
 	"../Headers/jugador.h"
 
-1761858336 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\laberinto.c
+1761858381 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\sources\laberinto.c
 	"../Headers/laberinto.h"
 
 1759145936 source:c:\users\compartido\desktop\algoritmos\laberintos-fantasmas\estructuras\matriz.c

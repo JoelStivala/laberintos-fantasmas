@@ -13,6 +13,7 @@ typedef struct
     int posX;
     int posY;
     tCola colaMovimientos;
+    int vivo;
 } tFantasma;
 
 typedef struct

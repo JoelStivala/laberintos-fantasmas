@@ -21,6 +21,8 @@ void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador,
 void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador);
 void ingresoUsuario();
 
+void mostrarAnimacion(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
+
 void pauseEnter();
 
 #endif // JUEGO_H_INCLUDED

@@ -34,15 +34,15 @@ void mover(tJugador* jugador, int nuevoX, int nuevoY)
 
 void registrarDireccion(tJugador* jugador, char input)
 {
-    char direccion[10]; //arriba, abajo, izquierda, derecha
+    int movXY[2] = {jugador->posX, jugador->posY}; //arriba, abajo, izquierda, derecha
     if(input == 'a')
-        strcpy(direccion, "izquierda");
+        movXY[0]--;
     else if(input == 'd')
-        strcpy(direccion, "derecha");
+        movXY[0]++;
     else if(input == 'w')
-        strcpy(direccion, "arriba");
+        movXY[1]--;
     else if(input == 's')
-        strcpy(direccion, "abajo");
+        movXY[1]++;
 
-    colaEncolar(&jugador->colaMovimientos, direccion, (strlen(direccion)+1));
+    colaEncolar(&jugador->colaMovimientos, movXY, sizeof(movXY));
 }

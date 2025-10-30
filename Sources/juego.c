@@ -34,7 +34,7 @@ void draw(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
                 {
                     fantasma = (tFantasma*)((char*)fantasmas->v + k * fantasmas->tamElem);
 
-                    if(fantasma->posY == i && fantasma->posX == j)
+                    if((fantasma->posY == i && fantasma->posX == j) && fantasma->vivo == 1)
                     {
                         printf("F");
                         hayFantasma = 1;
@@ -58,13 +58,14 @@ void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda)
     for(i = 0 ; i < fantasmas->ce ; i++)
     {
         fantasma = (tFantasma*)((char*)fantasmas->v + i * fantasmas->tamElem);
-        if(jugador->posX == fantasma->posX && jugador->posY == fantasma->posY)
+        if((jugador->posX == fantasma->posX && jugador->posY == fantasma->posY) && fantasma->vivo == 1)
         {
             jugador->vidas--;
             jugador->posX = jugador->posXIni;
             jugador->posY = jugador->posYIni;
-            liberarMovimientosFantasma(fantasma);
-            vectorEliminarPosicion(fantasmas, i);
+            //liberarMovimientosFantasma(fantasma);
+            fantasma->vivo = 0;
+            //vectorEliminarPosicion(fantasmas, i);
         }
     }
 
@@ -122,7 +123,8 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, cons
         for(int i = 0 ; i < fantasmas->ce ; i++)
         {
             fantasma = (tFantasma*)((char*)fantasmas->v + i * fantasmas->tamElem);
-            moverFantasmas(fantasma, jugador, laberinto);
+            if(fantasma->vivo == 1)
+                moverFantasmas(fantasma, jugador, laberinto);
         }
         procesarCelda(jugador, fantasmas, &laberinto->mat[jugador->posY][jugador->posX]);
     }
@@ -142,6 +144,8 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, cons
         puts("Game Over\n");
     }
 
+
+    mostrarAnimacion(laberinto, jugador, fantasmas);
     printf("Resumen de partida para %s:\n", nombreJugador);
     printf("Puntos: %d | Movimientos: %d | Resultado: %s\n", jugador->puntos, movimientos, ganada ? "Ganada" : "Perdida");
 
@@ -151,10 +155,39 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, cons
         colaQuitar(&jugador->colaMovimientos, buffer, sizeof(buffer));
         printf("%s ", buffer);
     }
-    mostrarMovimientosFantasma(fantasmas);
-    puts("");*/
+    mostrarMovimientosFantasma(fantasmas);*/
+    puts("");
     system("pause");
     system("cls || clear");
     colaVaciar(&jugador->colaMovimientos);
     liberarMovimientosFantasmas(fantasmas);
+}
+
+void mostrarAnimacion(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas)
+{
+    int i;
+    int j;
+    int movJugadorXY[2] = {jugador->posXIni, jugador->posYIni};
+    int flag = 0;
+
+    while(!colaVacia(&(jugador->colaMovimientos)))
+    {
+        //system("pause");
+
+        laberinto->mat[movJugadorXY[1]][movJugadorXY[0]] = '.';
+        colaQuitar(&(jugador->colaMovimientos), movJugadorXY, sizeof(movJugadorXY));
+        laberinto->mat[movJugadorXY[1]][movJugadorXY[0]] = 'J';
+
+        system("cls || clear");
+        for(i = 0 ; i < laberinto->cf ; i++)
+        {
+            for(j = 0 ; j < laberinto->cc ; j++)
+            {
+                printf("%c", laberinto->mat[i][j]);
+            }
+            puts("");
+        }
+
+    }
+
 }
