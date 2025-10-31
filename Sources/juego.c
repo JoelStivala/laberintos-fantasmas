@@ -1,4 +1,5 @@
 #include "../Headers/juego.h"
+#include <windows.h>
 
 int mostrarMenu()
 {
@@ -168,7 +169,6 @@ void mostrarAnimacion(tLaberinto* laberinto, tJugador* jugador, tVector* fantasm
     int i;
     int j;
     int movJugadorXY[2] = {jugador->posXIni, jugador->posYIni};
-    int flag = 0;
 
     while(!colaVacia(&(jugador->colaMovimientos)))
     {
@@ -178,6 +178,7 @@ void mostrarAnimacion(tLaberinto* laberinto, tJugador* jugador, tVector* fantasm
         colaQuitar(&(jugador->colaMovimientos), movJugadorXY, sizeof(movJugadorXY));
         laberinto->mat[movJugadorXY[1]][movJugadorXY[0]] = 'J';
 
+        Sleep(300);
         system("cls || clear");
         for(i = 0 ; i < laberinto->cf ; i++)
         {

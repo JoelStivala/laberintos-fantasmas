@@ -27,6 +27,5 @@ void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto);
 void moverFantasmas(tFantasma* f, tJugador* j, tLaberinto* lab);
 void liberarMovimientosFantasmas(tVector* fantasmas);
 void mostrarMovimientosFantasma(tVector *fantasmas);
-void liberarMovimientosFantasma(tFantasma* fantasma);
 
 #endif // FANTASMA_H_INCLUDED

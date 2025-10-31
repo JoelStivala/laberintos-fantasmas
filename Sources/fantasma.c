@@ -5,6 +5,8 @@ void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
 {
     int i;
     int j;
+    int movXY[2];
+
     tFantasma* fantasmaAux = fantasmas->v;
 
     for(i = 1 ; i < laberinto->cf -1 ; i++)
@@ -16,8 +18,11 @@ void cargarPosicionesFantasmas(tVector* fantasmas, tLaberinto* laberinto)
                 fantasmaAux->posX = j;
                 fantasmaAux->posY = i;
                 fantasmaAux->vivo = 1;
+                movXY[0] = fantasmaAux->posX;
+                movXY[1] = fantasmaAux->posY;
                 fantasmas->ce++;
                 colaCrear(&fantasmaAux->colaMovimientos);
+                colaEncolar(&fantasmaAux->colaMovimientos, movXY, sizeof(movXY));
                 fantasmaAux++;
             }
         }
@@ -61,11 +66,6 @@ void liberarMovimientosFantasmas(tVector* fantasmas)
         f = (tFantasma*)i;
         colaVaciar(&f->colaMovimientos);
     }
-}
-
-void liberarMovimientosFantasma(tFantasma* fantasma)
-{
-    colaVaciar(&fantasma->colaMovimientos);
 }
 
 void mostrarMovimientosFantasma(tVector *fantasmas)
