@@ -1,0 +1,77 @@
+#ifndef ARBOL_H_INCLUDED
+#define ARBOL_H_INCLUDED
+
+#include "../Headers/common.h"
+
+#define BALANCEADO 1
+#define NO_NALANCEADO 0
+
+#define COMPLETO 1
+#define NO_COMPLETO 0
+
+#define AVL 1
+#define NO_AVL 0
+
+typedef struct aNodo{
+    void *info;
+    unsigned tam;
+    struct aNodo *izq;
+    struct aNodo *der;
+}tNodoArbol;
+
+typedef tNodoArbol *tArbol;
+
+void crearArbolBin(tArbol *raiz);
+int insertarEnArbolBinRecursivo(tArbol *raiz, const void *info, unsigned bytes, cmp comparacion, accionDuplicado funcion);
+int insertarEnArbolBin(tArbol *raiz, const void *info, unsigned bytes, cmp comparacion, accionDuplicado funcion);
+int recorrerArbolBinPreorden(tArbol *raiz, accion funcion);
+int recorrerArbolBinPostorden(tArbol *raiz, accion funcion);
+int recorrerArbolBinInorden(tArbol *raiz, accion funcion);
+void* busquedaBin(tArbol *raiz, void *clave, unsigned bytes,cmp comparacion);
+int arbolVacio(const tArbol *raiz);
+int arbolLleno(const tArbol *raiz, unsigned bytes);
+void vaciarArbol(tArbol *raiz);
+
+///ejercicios para la proxima clase
+
+int contarHojas(tArbol *raiz);
+int contarNoHojas(tArbol *raiz);
+int contarNodos(tArbol *raiz);
+tNodoArbol* buscarClaveMayor(tArbol *raiz);
+tNodoArbol* buscarClaveMenor(tArbol *raiz);
+int recorrerSubarbolDer(tArbol *raiz, condicion funcion);
+int _accionSubarbolDer(tArbol *raiz,condicion funcion);
+int contarNodosPorClave(tArbol *raiz, const void *clave, int fnc(void*,const void*));
+float promedioConClavePar(tArbol *raiz, tPromedio *p ,void promedio(void*,tPromedio*));
+///pendiente de revision
+int buscarPorNoClave(tArbol *raiz, void *noClave, unsigned bytes, int algo(void *,const void*));
+
+
+int alturaArbol(tArbol *raiz);
+int nivelArbol(tArbol *raiz);
+///actividad del dia
+int recorrerHastaNivel(tArbol *raiz, int nivel, void accion(void*));
+int recorrerNivel(tArbol *raiz, int nivel, void accion(void*));
+int recorrerDesdeNivel(tArbol *raiz, int nivel, void accion(void*));
+
+//arbol completo, balanceado, avl y eliminar un nodo (se puede eliminar raiz)
+
+int esArbolBinCompleto(tArbol *raiz);
+///estas 2 funciones quedan pendientes de completar
+int esArbolBinBalanceado(tArbol *raiz);
+int esAVL(tArbol *raiz);
+
+
+int eliminarNodo(tArbol *raiz, void *clave, unsigned bytes,int cmp(const void*,const void*));
+int eliminarRaiz(tArbol* raiz, void *clave,unsigned bytes);
+
+///algunas primitivas para los indices, faltaria subir lo de .idx en un arbol balanceado
+void MostrarCliente(void *info);
+void mostrarIndice(void *info);
+int recorrerArchBin(const char *arch, unsigned bytes,tArbol *raiz);
+int compararApellidos(const void *a, const void *b);
+int crearIndice(const char *arch, tArbol *raiz);
+void _escribirIndice(FILE *indice, tArbol *raiz);
+
+#endif // ARBOL_H_INCLUDED
+
