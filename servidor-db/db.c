@@ -1,4 +1,4 @@
-#include "../Headers/db.h"
+#include "./db.h"
 
 int obtenerMaxIdPartida(const char* nombreJugador)
 {
@@ -46,17 +46,24 @@ int inicializarBD(tArbol* arbolUsuarios)
 
 int guardarUsuario(tArbol* arbolUsuarios, const char* nombre)
 {
+    FILE* pf;
     tUsuario nuevoUsuario;
     strcpy(nuevoUsuario.nombre, nombre);
 
-    FILE* pf = fopen("./Files/usuarios.dat", "ab");
+    int resultado = insertarEnArbolBinRecursivo(arbolUsuarios, &nuevoUsuario, sizeof(tUsuario), compararUsuarios, NULL);
+    if(resultado == ERR_DUPLICADO)
+        return ERR_DUPLICADO;
+
+    if(resultado != TODO_OK)
+        return resultado;
+
+    pf = fopen("./Files/usuarios.dat", "ab");
     if(!pf)
         return ERR_ARCHIVO;
 
     fwrite(&nuevoUsuario, sizeof(tUsuario), 1, pf);
     fclose(pf);
 
-    insertarEnArbolBinRecursivo(arbolUsuarios, &nuevoUsuario, sizeof(tUsuario), compararUsuarios,sinDuplicados);
     return TODO_OK;
 }
 

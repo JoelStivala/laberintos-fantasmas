@@ -14,6 +14,9 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add library="ws2_32" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/laberintos-fantasmas" prefix_auto="1" extension_auto="1" />
@@ -51,9 +54,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Estructuras/Vector.h" />
+		<Unit filename="Estructuras/macros.h" />
 		<Unit filename="Headers/common.h" />
 		<Unit filename="Headers/config.h" />
-		<Unit filename="Headers/db.h" />
 		<Unit filename="Headers/fantasma.h" />
 		<Unit filename="Headers/juego.h" />
 		<Unit filename="Headers/jugador.h" />
@@ -62,9 +65,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Sources/config.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Sources/db.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Sources/fantasma.c">
@@ -79,6 +79,10 @@
 		<Unit filename="Sources/laberinto.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="cliente_lib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cliente_lib.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

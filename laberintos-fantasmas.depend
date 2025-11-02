@@ -1,15 +1,16 @@
 # depslib dependency file v1.0
-1760919221 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
+1762110968 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
-	"./Estructuras/Matriz.h"
 	"./Headers/config.h"
 	"./Headers/jugador.h"
 	"./Headers/laberinto.h"
 	"./Headers/fantasma.h"
 	"./Headers/juego.h"
+	"./Estructuras/Matriz.h"
 	"./Estructuras/Cola.h"
+	"cliente_lib.h"
 
 1758983512 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\config.c
 	"config.h"
@@ -123,7 +124,7 @@
 1759004939 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\vector.c
 	"Vector.h"
 
-1760219555 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\common.h
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\common.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -131,19 +132,19 @@
 	<stdio.h>
 	"common.h"
 
-1760219555 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\jugador.h
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\jugador.h
 	"config.h"
 	"../Estructuras/Cola.h"
 	<string.h>
 
-1760919221 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\laberinto.h
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\laberinto.h
 	<stdio.h>
 	<time.h>
 	"config.h"
 	"common.h"
 	"../Estructuras/Matriz.h"
 
-1760219555 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\fantasma.h
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\fantasma.h
 	"config.h"
 	"common.h"
 	"laberinto.h"
@@ -151,7 +152,7 @@
 	"../Estructuras/Vector.h"
 	"../Estructuras/Cola.h"
 
-1760219555 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\juego.h
+1762102193 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\juego.h
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -160,43 +161,48 @@
 	"fantasma.h"
 	"common.h"
 	"../Estructuras/Cola.h"
+	"../Estructuras/Arbol.h"
+	"../cliente_lib.h"
 
-1760919221 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\fantasma.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\fantasma.c
 	"../Headers/fantasma.h"
 
-1760219555 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\common.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\common.c
 	"../Headers/common.h"
 
-1760919221 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\config.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\config.c
 	"../Headers/config.h"
 
-1760921809 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
+1762111009 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\juego.c
 	"../Headers/juego.h"
+	<windows.h>
 
-1760219555 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\jugador.c
 	"../Headers/jugador.h"
 
-1760919221 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\laberinto.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\laberinto.c
 	"../Headers/laberinto.h"
 
-1759001713 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.c
 	"Lista.h"
 
 1760219555 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\matriz.c
 	"Matriz.h"
 
-1759001632 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.h
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.h
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"../Headers/common.h"
 
-1759003044 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.c
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.c
 	"Cola.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-
-1759002440 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\cola.h
+	"../Headers/common.h"
 
 1759004960 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\vector.h
 	<stdlib.h>
@@ -618,5 +624,155 @@
 	"../Headers/jugador.h"
 
 1761504795 source:c:\users\usuario\desktop\laberintos-fantasmas-arboles\laberintos-fantasmas-arboles\sources\laberinto.c
+	"../Headers/laberinto.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\arbol.c
+	"arbol.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\arbol.h
+	"../Headers/common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\db.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Estructuras/Arbol.h"
+	"../Estructuras/Lista.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\sources\db.c
+	"../Headers/db.h"
+
+1762110672 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\cliente_lib.c
+	"cliente_lib.h"
+	<stdio.h>
+	<string.h>
+
+1762099207 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\cliente_lib.h
+	<winsock2.h>
+
+1762110672 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\cliente_lib.c
+	"cliente_lib.h"
+	<stdio.h>
+	<string.h>
+
+1762099207 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\cliente_lib.h
+	<winsock2.h>
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\arbol.c
+	"arbol.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\arbol.h
+	"../Headers/common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\cola.c
+	"Cola.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\lista.c
+	"Lista.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\lista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1760219555 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\matriz.c
+	"Matriz.h"
+
+1760219555 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\matriz.h
+	<stdlib.h>
+
+1759004939 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\vector.c
+	"Vector.h"
+
+1759004960 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\estructuras\vector.h
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1762111304 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"./Headers/config.h"
+	"./Headers/jugador.h"
+	"./Headers/laberinto.h"
+	"./Headers/fantasma.h"
+	"./Headers/juego.h"
+	"./Estructuras/Matriz.h"
+	"./Estructuras/Cola.h"
+	"cliente_lib.h"
+
+1758983512 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\config.h
+	<stdio.h>
+	"common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\jugador.h
+	"config.h"
+	"../Estructuras/Cola.h"
+	<string.h>
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\laberinto.h
+	<stdio.h>
+	<time.h>
+	"config.h"
+	"common.h"
+	"../Estructuras/Matriz.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\fantasma.h
+	"config.h"
+	"common.h"
+	"laberinto.h"
+	"jugador.h"
+	"../Estructuras/Vector.h"
+	"../Estructuras/Cola.h"
+
+1762102193 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\headers\juego.h
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	"jugador.h"
+	"laberinto.h"
+	"fantasma.h"
+	"common.h"
+	"../Estructuras/Cola.h"
+	"../Estructuras/Arbol.h"
+	"../cliente_lib.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\common.c
+	"../Headers/common.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\config.c
+	"../Headers/config.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\fantasma.c
+	"../Headers/fantasma.h"
+
+1762111399 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\juego.c
+	"../Headers/juego.h"
+	<windows.h>
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\jugador.c
+	"../Headers/jugador.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\sources\laberinto.c
 	"../Headers/laberinto.h"
 

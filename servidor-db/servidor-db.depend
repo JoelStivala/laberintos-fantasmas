@@ -1,0 +1,116 @@
+# depslib dependency file v1.0
+1762097895 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\main.c
+	<stdio.h>
+	<stdlib.h>
+	"servidor_lib.h"
+
+1762107486 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\servidor_lib.c
+	"servidor_lib.h"
+	"db.h"
+	"Arbol.h"
+	<string.h>
+
+1762095102 c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\servidor_lib.h
+	<winsock2.h>
+	<stdio.h>
+
+1762096401 c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\db.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Arbol.h"
+	"Lista.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\arbol.h
+	"../Headers/common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\headers\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\estructuras\lista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../Headers/common.h"
+
+1762110363 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\db.c
+	"./db.h"
+
+1762109894 c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\arbol.h
+	"common.h"
+
+1762096453 c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\lista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1762109918 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\arbol.c
+	"arbol.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1762096447 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\common.c
+	"common.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\servidor-db\lista.c
+	"Lista.h"
+
+1762109918 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\arbol.c
+	"arbol.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+
+1762109894 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\arbol.h
+	"common.h"
+
+1762046200 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\common.h
+	<stdio.h>
+	<stdlib.h>
+
+1762096447 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\common.c
+	"common.h"
+
+1762046200 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\lista.c
+	"Lista.h"
+
+1762096453 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\lista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"common.h"
+
+1762097895 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\main.c
+	<stdio.h>
+	<stdlib.h>
+	"servidor_lib.h"
+
+1762095102 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\servidor_lib.h
+	<winsock2.h>
+	<stdio.h>
+
+1762111564 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\db.c
+	"./db.h"
+
+1762096401 c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\db.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Arbol.h"
+	"Lista.h"
+
+1762110656 source:c:\users\joelf\onedrive\escritorio\tp-algoritmos\laberintos-fantasmas\laberintos-fantasmas\servidor-db\servidor_lib.c
+	"servidor_lib.h"
+	"db.h"
+	"Arbol.h"
+	<string.h>
+

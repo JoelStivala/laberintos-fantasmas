@@ -95,7 +95,7 @@ void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador,
     eliminarFantasmasLaberinto(laberinto);
 }
 
-void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador)
+void gameLoop(SOCKET sock, tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador)
 {
     int nuevoX, nuevoY;
     char input;
@@ -133,8 +133,9 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, cons
     int ganada = (jugador->vidas > 0);
     //ganada
 
-    guardarPartida(nombreJugador, jugador->puntos, movimientos, ganada?'G':'P');
-
+    //guardarPartida(nombreJugador, jugador->puntos, movimientos, ganada?'G':'P');
+    if(sock != INVALID_SOCKET)
+        enviarPartidaAlServidor(sock, nombreJugador, jugador->puntos, movimientos, ganada?'G':'P');
     system("cls || clear");
     if(jugador->vidas > 0)
     {
@@ -147,7 +148,9 @@ void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, cons
 
 
     mostrarAnimacion(laberinto, jugador, fantasmas);
-    printf("Resumen de partida para %s:\n", nombreJugador);
+    if(sock != INVALID_SOCKET)
+        printf("Resumen de partida para %s:\n", nombreJugador);
+
     printf("Puntos: %d | Movimientos: %d | Resultado: %s\n", jugador->puntos, movimientos, ganada ? "Ganada" : "Perdida");
 
     /*printf("Lista de movimientos: ");

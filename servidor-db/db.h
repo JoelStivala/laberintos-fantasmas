@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../Estructuras/Arbol.h"
-#include "../Estructuras/Lista.h"
+#include "Arbol.h"
+#include "Lista.h"
 
 #define TODO_OK 0
 #define ERR_ARCHIVO 1

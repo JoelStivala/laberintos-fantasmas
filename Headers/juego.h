@@ -9,16 +9,18 @@
 #include "laberinto.h"
 #include "fantasma.h"
 #include "common.h"
-#include "db.h"
+//#include "db.h"
 #include "../Estructuras/Cola.h"
 #include "../Estructuras/Arbol.h"
+
+#include "../cliente_lib.h"
 
 int mostrarMenu();
 void draw(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
 void procesarCelda(tJugador* jugador, tVector* fantasmas, char* celda);
 void inicializarJuego(tConfig* config, tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
 
-void gameLoop(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador);
+void gameLoop(SOCKET sock, tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas, const char* nombreJugador);
 void ingresoUsuario();
 
 void mostrarAnimacion(tLaberinto* laberinto, tJugador* jugador, tVector* fantasmas);
