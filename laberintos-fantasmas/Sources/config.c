@@ -28,5 +28,5 @@ int cargarConfiguracion(FILE* pf, void* elem)
 
 void inicializarConfiguracion(tConfig* config)
 {
-    cargarRegistroMemoria("./Files/config.txt", config, cargarConfiguracion);
+    cargarRegistroMemoria("../../Files/config.txt", config, cargarConfiguracion);
 }

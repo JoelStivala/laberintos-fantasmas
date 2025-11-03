@@ -2,7 +2,7 @@
 
 int obtenerMaxIdPartida(const char* nombreJugador)
 {
-    FILE* pf = fopen("./Files/partidas.dat", "rb");
+    FILE* pf = fopen("../../Files/partidas.dat", "rb");
     tPartida partida;
     int maxId = 0;
 
@@ -30,7 +30,7 @@ int compararUsuarios(const void* u1, const void* u2)
 
 int inicializarBD(tArbol* arbolUsuarios)
 {
-    FILE* pf = fopen("./Files/usuarios.dat", "rb");
+    FILE* pf = fopen("../../Files/usuarios.dat", "rb");
     tUsuario usuario;
 
     crearArbolBin(arbolUsuarios);
@@ -57,7 +57,7 @@ int guardarUsuario(tArbol* arbolUsuarios, const char* nombre)
     if(resultado != TODO_OK)
         return resultado;
 
-    pf = fopen("./Files/usuarios.dat", "ab");
+    pf = fopen("../../Files/usuarios.dat", "ab");
     if(!pf)
         return ERR_ARCHIVO;
 
@@ -74,7 +74,7 @@ int guardarPartida(const char* nombreJugador, int puntuacion, int movimientos, c
 
     int maxId = obtenerMaxIdPartida(nombreJugador);
 
-    pf = fopen("./Files/partidas.dat", "ab");
+    pf = fopen("../../Files/partidas.dat", "ab");
     if(!pf)
         return ERR_ARCHIVO;
 
@@ -93,7 +93,7 @@ int guardarPartida(const char* nombreJugador, int puntuacion, int movimientos, c
 void mostrarRankingSimple()
 {
     system("cls || clear");
-    FILE* pf = fopen("./Files/partidas.dat", "rb");
+    FILE* pf = fopen("../../Files/partidas.dat", "rb");
     tPartida partida;
 
     if(!pf)
