@@ -2,60 +2,59 @@
 
 //#define MAX(a,b) ((a)>(b)?(a):(b))
 
-int cargarLaberinto(FILE* pf, void* elem)
-{
-    char linea[255];
-    tLaberinto* laberinto = elem;
-    int i = 0;
+void acondicionarLaberinto(char** mat, int filas, int columnas);
+int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni);
+void algoritmoGenerador(tLaberinto* laberinto, int x, int y,
+                        const int dx[], const int dy[], int dir[]);
+int esDirGenLabValida(tLaberinto* laberinto, int posX, int posY);
+void facilitarLaberinto(tLaberinto* laberinto);
+void posicionarElementos(tLaberinto* laberinto, tConfig* config);
+void aleatoriezarAparicionDeElem(tLaberinto* laberinto, int* x, int* y);
+int laberintoGrabarEnArchivoTxt(tLaberinto* laberinto, const char* nomArch);
+int cargarLaberinto(const char* nomArch, void* elem);
 
-    while(fgets(linea, 255, pf) && i < laberinto->cf)
-    {
-        sscanf(linea, "%s", laberinto->mat[i]);
-        i++;
-    }
-
-    return TODO_OK;
-}
-
-/*
 int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
 {
-    int j = 1;
-    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
+    int ret;
 
-    //TODO - Funcion para crear el archivo laberinto.txt, actualmente leemos el archivo directamente
+    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas);
+    if(laberinto->mat == NULL)
+        return ERR_MEMORIA;
 
     laberinto->cf = config->filas;
     laberinto->cc = config->columnas;
 
-    cargarRegistroMemoria("./Files/laberinto.txt", laberinto, cargarLaberinto);
+    acondicionarLaberinto(laberinto->mat, laberinto->cf, laberinto->cc);
 
-    while(laberinto->mat[0][j] != 'E')
+    //Necesario para la aleatoriedad
+    srand(time(NULL));
+
+    ret = generarLaberinto(laberinto, xIni, yIni);
+
+    if(ret != TODO_OK)
     {
-        j++;
+        destruirMatriz( (void**)laberinto->mat, laberinto->cf);
+        return ret;
     }
 
-    *xIni = j;
-    *yIni = 1;
+    facilitarLaberinto(laberinto);
 
-    return TODO_OK;
-}
-*/
+    posicionarElementos(laberinto, config);
 
-void eliminarFantasmasLaberinto(tLaberinto* laberinto)
-{
-    int i, j;
+    ret = laberintoGrabarEnArchivoTxt(laberinto, LABERINTO_TXT);
 
-    for(i = 1 ; i < laberinto->cf - 1 ; i++)
+    if(ret != TODO_OK)
     {
-        for(j = 1 ; j < laberinto->cc - 1 ; j++)
-        {
-            if(laberinto->mat[i][j] == 'F')
-            {
-                laberinto->mat[i][j] = '.';
-            }
-        }
+        ///No decidimos destruir la matriz, solo devolvemos el error.
+        ///Aquel que lo recibe decide si la elimina
+        return ret;
     }
+
+    ///Ya tengo la memoria reservada para la matriz. La sobreescribo
+
+    ret = cargarLaberinto(LABERINTO_TXT, laberinto);
+
+    return ret;
 }
 
 void acondicionarLaberinto(char** mat, int filas, int columnas)
@@ -65,97 +64,6 @@ void acondicionarLaberinto(char** mat, int filas, int columnas)
     for(i = 0; i < filas; i ++)
         for(j = 0; j < columnas; j ++)
             mat[i][j] = BLOQUE;
-}
-
-///NUEVA
-int inicializarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni, tConfig* config)
-{
-    laberinto->mat = (char**)crearMatriz(sizeof(char), config->filas, config->columnas); //validar la creacion
-    laberinto->cf = config->filas;
-    laberinto->cc = config->columnas;
-
-    acondicionarLaberinto(laberinto->mat, laberinto->cf, laberinto->cc);
-
-    //Necesario para la aleatoriedad
-    srand(time(NULL));
-
-    generarLaberinto(laberinto, xIni, yIni);
-
-    facilitarLaberinto(laberinto);
-
-    posicionarElementos(laberinto, config);
-
-    return TODO_OK;
-}
-
-void facilitarLaberinto(tLaberinto* laberinto)
-{
-    int auxX, auxY;
-    int cont = MAX(laberinto->cc / 2, laberinto->cf / 2);
-
-    while(cont > 0) //Crea x pasillos según cont
-    {
-        do
-        {
-            auxX = 1 + rand() % (laberinto->cc - 3); //+1 para asegurar que no sea borde
-            auxY = 1 + rand() % (laberinto->cf - 3); //-3 para asegurar que no sea borde
-        }while(!hayBloque(laberinto, auxX, auxY));
-
-        laberinto->mat[auxY][auxX] = '.';
-        cont--;
-    }
-
-}
-
-void posicionarElementos(tLaberinto* laberinto, tConfig* config)
-{
-    int x, y;
-    int cantElem;
-
-    //Fantasmas
-    cantElem = config->maxNumeroFantasmas;
-    while(cantElem > 0)
-    {
-        aleatoriezarAparicionDeElem(laberinto, &x, &y);
-
-        laberinto->mat[y][x] = 'F';
-        cantElem --;
-    }
-
-    //Premios
-    cantElem = config->maxNumeroPremios;
-    while(cantElem > 0)
-    {
-        aleatoriezarAparicionDeElem(laberinto, &x, &y);
-
-        laberinto->mat[y][x] = 'P';
-        cantElem --;
-    }
-
-    //Vidas Extra
-    cantElem = config->maxVidasExtra;
-    while(cantElem > 0)
-    {
-        aleatoriezarAparicionDeElem(laberinto, &x, &y);
-
-        laberinto->mat[y][x] = 'V';
-        cantElem --;
-    }
-}
-
-//Puede fallar?
-void aleatoriezarAparicionDeElem(tLaberinto* laberinto, int* x, int* y)
-{
-    int auxX, auxY;
-
-    do
-    {
-        auxX = rand() % (laberinto->cc - 1);
-        auxY = rand() % (laberinto->cf - 1);
-    }while(!hayCamino(laberinto, auxX, auxY));
-
-    *x = auxX;
-    *y =  auxY;
 }
 
 int generarLaberinto(tLaberinto* laberinto, int* xIni, int* yIni)
@@ -223,6 +131,131 @@ void algoritmoGenerador(tLaberinto* laberinto, int x, int y,
 int esDirGenLabValida(tLaberinto* laberinto, int posX, int posY)
 {
     return posX > 0 && posX < laberinto->cc - 1 && posY > 0 && posY < laberinto->cf - 1 && hayBloque(laberinto, posX, posY);
+}
+
+void facilitarLaberinto(tLaberinto* laberinto)
+{
+    int auxX, auxY;
+    int cont = MAX(laberinto->cc / 2, laberinto->cf / 2);
+
+    while(cont > 0) //Crea x pasillos según cont
+    {
+        do
+        {
+            auxX = 1 + rand() % (laberinto->cc - 3); //+1 para asegurar que no sea borde
+            auxY = 1 + rand() % (laberinto->cf - 3); //-3 para asegurar que no sea borde
+        }while(!hayBloque(laberinto, auxX, auxY));
+
+        laberinto->mat[auxY][auxX] = '.';
+        cont--;
+    }
+
+}
+
+void posicionarElementos(tLaberinto* laberinto, tConfig* config)
+{
+    int x, y;
+    int cantElem;
+
+    //Fantasmas
+    cantElem = config->maxNumeroFantasmas;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'F';
+        cantElem --;
+    }
+
+    //Premios
+    cantElem = config->maxNumeroPremios;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'P';
+        cantElem --;
+    }
+
+    //Vidas Extra
+    cantElem = config->maxVidasExtra;
+    while(cantElem > 0)
+    {
+        aleatoriezarAparicionDeElem(laberinto, &x, &y);
+
+        laberinto->mat[y][x] = 'V';
+        cantElem --;
+    }
+}
+
+void aleatoriezarAparicionDeElem(tLaberinto* laberinto, int* x, int* y)
+{
+    int auxX, auxY;
+
+    do
+    {
+        auxX = rand() % (laberinto->cc - 1);
+        auxY = rand() % (laberinto->cf - 1);
+    }while(!hayCamino(laberinto, auxX, auxY));
+
+    *x = auxX;
+    *y =  auxY;
+}
+
+int laberintoGrabarEnArchivoTxt(tLaberinto* laberinto, const char* nomArch)
+{
+    FILE* pf = fopen(nomArch, "wt");
+    int i;
+    if(!pf)
+        return ERR_ARCHIVO;
+
+    for(i = 0; i < laberinto->cf; i ++)
+        fprintf(pf, "%.*s\n", laberinto->cc, laberinto->mat[i]);
+
+    printf("\n\nPUDO GRABAR\n\n");
+
+    fclose(pf);
+    return TODO_OK;
+}
+
+int cargarLaberinto(const char* nomArch, void* elem)
+{
+    char linea[TAM_LINEA];
+    tLaberinto* laberinto;
+    int i;
+    FILE* pf = fopen(nomArch, "rt");
+
+    if(!pf)
+        return ERR_ARCHIVO;
+
+    laberinto = elem;
+    i = 0;
+    while(fgets(linea, TAM_LINEA, pf) && i < laberinto->cf)
+    {
+        sscanf(linea, "%s" , laberinto->mat[i]);
+        i++;
+    }
+
+    printf("\n\nPUDO CARGAR\n\n");
+
+    fclose(pf);
+    return TODO_OK;
+}
+
+void eliminarFantasmasLaberinto(tLaberinto* laberinto)
+{
+    int i, j;
+
+    for(i = 1 ; i < laberinto->cf - 1 ; i++)
+    {
+        for(j = 1 ; j < laberinto->cc - 1 ; j++)
+        {
+            if(laberinto->mat[i][j] == 'F')
+            {
+                laberinto->mat[i][j] = '.';
+            }
+        }
+    }
 }
 
 int hayBloque(tLaberinto* laberinto, int posX, int posY)
